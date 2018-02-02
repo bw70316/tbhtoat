@@ -23,17 +23,17 @@
                 {!! Form::select('category_id', [''=>'Choose Categories'] + $categories, null, ['class'=>'form-control']) !!}
             </div>
             {{ csrf_field() }}
-            <div class="form-group">
-                {!! Form::label('author', 'Author:') !!}
-                {!! Form::text('author', null, ['class'=>'form-control']) !!}
-            </div>
-            {{ csrf_field() }}
-
             {{--<div class="form-group">--}}
-                {{--{!! Form::label('photo_id', 'Photo:') !!}--}}
-                {{--{!! Form::file('photo_id', null, ['class'=>'form-control']) !!}--}}
+                {{--{!! Form::label('author', 'Author:') !!}--}}
+                {{--{!! Form::text('author', null, ['class'=>'form-control']) !!}--}}
             {{--</div>--}}
             {{--{{ csrf_field() }}--}}
+
+            <div class="form-group">
+                {!! Form::label('photo_id', 'Photo:') !!}
+                {!! Form::file('photo_id', ['class'=>'form-control']) !!}
+            </div>
+            {{ csrf_field() }}
 
             <div class="form-group">
                 {!! Form::label('body', 'Text:') !!}

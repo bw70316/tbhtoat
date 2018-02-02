@@ -17,10 +17,10 @@
                     <tr>
                          <th>Id</th>
                 {{--<th>Photo</th>--}}
-                        <th>User</th>
-                <th>Category</th>
+                        <th>Edit Post</th>
+                        <th>Category</th>
                         <th>Title</th>
-                        <th>Author</th>
+                        <th>Photo</th>
                         <th>Body</th>
                         <th>Created At</th>
                         <th>Updated At</th>
@@ -36,7 +36,7 @@
                                 <td><a href="{{route('posts.edit', $post->id)}}">{{$post->user->name}}</a></td>
                                 <td>{{$post->category ? $post->category->name : 'Uncategorized'}}</td>
                                 <td>{{$post->title}}</td>
-                                <td>{{$post->author}}</td>
+                                <td><img height="100" src="{{$post->photo ? $post->photo->file : 'placehold.it/400x400'}}" alt=""></td>
                                 <td>{{str_limit($post->body, 50)}}</td>
                                 <td>{{$post->created_at->diffForHumans()}}</td>
                                 <td>{{$post->updated_at->diffForHumans()}}</td>

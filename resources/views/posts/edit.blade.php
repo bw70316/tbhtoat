@@ -1,9 +1,10 @@
-@extends('layouts.app')
+@extends('layouts.create')
 
 
 
 
 @section('content')
+    @include('includes.tinyeditor')
     <div class = "container">
          <div class="row">
              <div class="col-sm-3">
@@ -24,11 +25,11 @@
                     {!! Form::select('category_id', [''=>'Choose Categories'] + $categories, null, ['class'=>'form-control']) !!}
                 </div>
                 {{ csrf_field() }}
-                <div class="form-group">
-                    {!! Form::label('author', 'Author:') !!}
-                    {!! Form::text('author', null, ['class'=>'form-control']) !!}
-                </div>
-                {{ csrf_field() }}
+                {{--<div class="form-group">--}}
+                    {{--{!! Form::label('author', 'Author:') !!}--}}
+                    {{--{!! Form::text('author', null, ['class'=>'form-control']) !!}--}}
+                {{--</div>--}}
+                {{--{{ csrf_field() }}--}}
 
                 {{--<div class="form-group">--}}
                     {{--{!! Form::label('photo_id', 'Photo:') !!}--}}
@@ -45,7 +46,7 @@
 
 
                 <div class="form-group">
-                    {!! Form::submit('Edit Blog Post', ['class'=>'btn btn-primary col-sm-3']) !!}
+                    {!! Form::submit('Update Blog', ['class'=>'btn btn-success col-sm-3']) !!}
                 </div>
 
                 {!! Form::close() !!}
@@ -54,7 +55,7 @@
 
                 {!! Form::open(['method'=>'DELETE', 'action'=>['PostsController@destroy', $post->id], 'class'=>'pull-right']) !!}
 
-                <div class="form-group-button">
+                <div class="form-group-button" style="margin-bottom: 50px">
                     {!! Form::submit('Delete Post', ['class'=>'btn btn-primary']) !!}
                 </div>
 

@@ -115,8 +115,13 @@ Route::group(['middleware'=>'auth'], function() {
     Route::post('reply/comment', 'CommentRepliesController@createReply');
 });
 
+
 Route::resource('/games', 'GamesController');
 
+//Route::get('/posts/{id}', ['as'=>'home.posts', 'uses'=>'PostsController@post']);
+
+
 Route::resource('/posts', 'PostsController');
+
 
 Route::resource('/players', 'PlayersController');
