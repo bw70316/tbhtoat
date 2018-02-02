@@ -1,0 +1,25 @@
+#admin-page {
+  padding-top: 0; }
+
+#page-header {
+  font-size: 48px; }
+
+.img-rounded {
+  height: 50px; }
+
+#nested-comment {
+  margin-top: 60px; }
+
+body {
+  color: blue; }
+
+.nav {
+  color: blue; }
+
+.dropdown {
+  color: blue; }
+
+.comment-reply {
+  display: none; }
+
+/*# sourceMappingURL=app.css.map */
