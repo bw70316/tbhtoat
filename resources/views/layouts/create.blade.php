@@ -12,11 +12,14 @@
     <title>TBHToaT</title>
 
     <!-- Bootstrap Core CSS -->
-    <link href="{{asset('css/app.css')}}" rel="stylesheet">
+   
 
     <link href="{{asset('css/libs.css')}}" rel="stylesheet">
 
+    <link href="{{asset('css/app.css')}}" rel="stylesheet">
+
 @yield('styles')
+<link rel="icon" type="image/png" href="/images/download.png" sizes="16x16" />
 
 <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -40,19 +43,19 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#">Start Bootstrap</a>
+            <a class="navbar-brand" href="#">TBHToaT</a>
         </div>
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-            <ul class="nav navbar-nav">
+            <ul class="nav navbar-nav ml-auto" id="create-nav" style="margin-left: 750px">
                 <li>
-                    <a href="#">About</a>
+                    <a href="/posts">Blog</a>
                 </li>
                 <li>
-                    <a href="#">Services</a>
+                    <a href="/games">Games</a>
                 </li>
                 <li>
-                    <a href="#">Contact</a>
+                    <a href="/data">Data</a>
                 </li>
             </ul>
         </div>

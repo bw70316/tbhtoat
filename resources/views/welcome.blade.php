@@ -5,7 +5,7 @@
     <div class="row">
         <div class="col-sm-8">
             <div class="panel panel-default">
-                <div class="panel-heading">Welcome to TBHToaT -- The pinnacle of human accomplishment</div>
+                <div class="panel-heading" id="hockey-welcome">Welcome to TBHToaT -- The pinnacle of human accomplishment</div>
 
                 <div class="panel-body">
                     Welcome to the mesmerizing world of standard definition virtual hockey. Fans of pixelation will quiver in anticipation as they take in the roar of the crowd, witness the pandemonium, and get so close to the action that they can almost feel the sweat on their own palms as competitors click buttons in their endless quest to determine which team is . . . <h1 style="text-align: center">THE BEST HOCKEY TEAM OF ALL TIME!!!</h1>

@@ -109,6 +109,8 @@ Route::group(['middleware'=>'admin'], function(){
 
 });
 
+Route::delete('admin/delete/media', 'AdminMediasController@deleteMedia');
+
 Route::group(['middleware'=>'auth'], function() {
 
 
@@ -120,8 +122,13 @@ Route::resource('/games', 'GamesController');
 
 //Route::get('/posts/{id}', ['as'=>'home.posts', 'uses'=>'PostsController@post']);
 
+Route::get('/home', 'HomeController@index');
+
+// Route::get('/post/{id}', ['as'=>'home.posts', 'uses'=>'PostsController@post']);
 
 Route::resource('/posts', 'PostsController');
+
+
 
 
 Route::resource('/players', 'PlayersController');

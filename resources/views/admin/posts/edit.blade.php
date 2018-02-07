@@ -6,9 +6,11 @@
 @section('content')
     @include('includes.tinyeditor')
     <div class="row">
-        <div class="col-sm-3">
-            <img class="img-responsive" src="{{$post->photo ? $post->photo->file : $photo->photoPlaceholder}}" alt="">
-        </div>
+    <div class="col-sm-3">
+            @if(isset($post->photo))
+             <img src="{‌{ $post->photo }}" alt="no image">
+          @endif
+    </div>
         <div class="col-sm-7">
             <h1>Update Post</h1>
 

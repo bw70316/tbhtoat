@@ -8,7 +8,9 @@
     <div class = "container">
          <div class="row">
              <div class="col-sm-3">
-                 <img class="img-responsive" src="{{$post->photo ? $post->photo->file : $photo->photoPlaceholder}}" alt="">
+                 @if(isset($post->photo))
+        <img src="{‌{ $post->photo }}" alt="">
+                @endif
              </div>
             <div class="col-sm-5">
                 <h1>Update Post</h1>

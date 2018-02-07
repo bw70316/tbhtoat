@@ -20,7 +20,10 @@ class PostsController extends Controller
      */
     public function index()
     {
+        // $posts = Post::orderBy('id', 'desc')->skip(1)->take(1)->get();
         $posts = Post::all();
+        
+     
         return view('posts.index', compact('posts'));
         //
     }
@@ -75,11 +78,25 @@ class PostsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+
+    // public function show($slug){
+
+    //     $post = Post::findBySlugOrFail($slug);
+ 
+    //     $comments = $post->comments()->whereIsActive(1)->get();
+ 
+ 
+ 
+    //     return view('post', compact('post', 'comments'));
+    //  }
     public function show($id)
     {
         $post = Post::findOrFail($id);
 
-       return view('posts', compact('post'));
+     
+
+
+       return view('posts/show', compact('post'));
 
     }
 
@@ -91,12 +108,14 @@ class PostsController extends Controller
      */
     public function edit($id)
     {
+
+        
         //
-        $post = Post::findOrFail($id);
+        // $post = Post::findOrFail($id);
 
-        $categories = Category::pluck('name', 'id')->all();
+        // $categories = Category::pluck('name', 'id')->all();
 
-        return view('posts.edit', compact('post', 'categories'));
+        // return view('posts.edit', compact('post', 'categories'));
     }
 
     /**

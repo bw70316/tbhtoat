@@ -38,10 +38,10 @@ class GamesController extends Controller
 
     {
 
-        $wins = Win::lists('name', 'id')->all();
-        $teams = Team::lists('name', 'id')->all();
-        $levels = Level::lists('name', 'id')->all();
-        $options = Option::lists('name', 'id')->all();
+        $wins = Win::pluck('name', 'id')->all();
+        $teams = Team::pluck('name', 'id')->all();
+        $levels = Level::pluck('name', 'id')->all();
+        $options = Option::pluck('name', 'id')->all();
 
 
 

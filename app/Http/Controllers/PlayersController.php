@@ -40,9 +40,9 @@ class PlayersController extends Controller
 //        $wins = Win::lists('name', 'id')->all();
 //        $teams = Team::lists('name', 'id')->all();
 
-        $names = Name::lists('name', 'id')->all();
-        $options = Option::lists('name', 'id')->all();
-        $positions = Position::lists('name', 'id')->all();
+        $names = Name::pluck('name', 'id')->all();
+        $options = Option::pluck('name', 'id')->all();
+        $positions = Position::pluck('name', 'id')->all();
 
         return view('players.create', compact('options', 'names', 'positions'));
     }

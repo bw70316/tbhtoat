@@ -153,8 +153,12 @@ class AdminPostsController extends Controller
        $post = Post::findOrFail($id);
 
        unlink(public_path() . $post->photo->file);
-
+        
+        Photo:findOrFail($post->photo_id)->delete();
+        
        $post->delete();
+
+       
 
        return redirect('/admin/posts');
 
