@@ -49,7 +49,7 @@
                     </tbody>
                 </table>
 
-                <div class="row">{{$post->body}}</div>
+           
             
              
             </div>

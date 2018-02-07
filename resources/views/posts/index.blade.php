@@ -8,13 +8,19 @@
     <div class="container">
         <div class="row">
             <div class="col-sm-6">
-
+           <h1>Welcome to the Blog Section!!!</h1>
+           <h3>Below is the most recent blog, scroll down for option to peruse other blogs detailing past glories and follies.</h3>
             
             <h1>{{$posts->last()->title}}</h1>
-           Category: <p>{{$posts->last()->category->name}}</p>
-            <p style="overflow-wrap: break-word;">{{$posts->last()->body}}</p>
-            <p>{{$posts->last()->user->name}}</p>
-            <img class="img-responsive" src="{{$posts->last()->photo ? $posts->last()->photo->file : null}}" alt="">
+            <p class="lead">
+        by  {{$posts->last()->user->name}}
+    </p>
+    <p><span class="glyphicon glyphicon-time"></span> Posted {{$posts->last()->created_at->diffForHumans()}}</p>
+          <!-- <p> Category: {{$posts->last()->category->name}}</p> -->
+          <img class="img-responsive" style="float:left; height:100px; width:120px; margin-right:15px;"src="{{$posts->last()->photo ? $posts->last()->photo->file : null}}" alt="">
+            <p style="overflow-wrap: break-word;">{!!$posts->last()->body!!}</p>
+            
+            
             <!-- <p>{{$posts->last()->title}}</p> -->
                
 

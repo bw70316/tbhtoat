@@ -33,11 +33,11 @@
                         @foreach($games as $game)
 
                             <tr>
-                                <td>{{$game->id}}</td>
+                                <!-- <td>{{$game->id}}</td>
                                 <td>{{$game->user->name}}</td>
-                                <td>{{$game->win ? $game->win->name : 'non'}}</td>
+                                <td>{{$game->win ? $game->win->name : 'non'}}</td> -->
                                 <td>{{$game->year}}</td>
-                                <td>{{$game->level ? $game->level->name : 'No Series'}}</td>
+                                <!-- <td>{{$game->level ? $game->level->name : 'No Series'}}</td>
                                 <td>{{$game->team ? $game->team->name : 'N/A'}}</td>
                                 <td>{{$game->option ? $game->option->name : 'N/A'}}</td>
                                 <td>{{$game->homeScore}}</td>
@@ -45,7 +45,7 @@
                                 <td>{{$game->homeShots}}</td>
                                 <td>{{$game->awayShots}}</td>
                                 <td>{{$game->tie}}</td>
-                                <td>{{$game->overtime_id}}</td>
+                                <td>{{$game->overtime_id}}</td> -->
                             </tr>
                         @endforeach
                     @endif
@@ -53,10 +53,10 @@
 
                     </tbody>
                 </table>
-                 <a href="{{ url('/games/create') }}" class="btn btn-primary">Add Game</a>
+                 <!-- <a href="{{ url('/games/create') }}" class="btn btn-primary">Add Game</a>
                  <div class="row">
                      <div class="col-sm-6 col-sm-offset-5">
-                         {{$games->render()}}
+                         {{$games->render()}} -->
                      </div>
                  </div>
              </div>
