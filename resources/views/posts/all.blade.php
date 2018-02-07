@@ -5,21 +5,15 @@
 
 @section('content')
 
-    <div class="container">
+<div class="container">
         <div class="row">
             <div class="col-sm-6">
-
-            
-            <h1>{{$posts->last()->title}}</h1>
-           Category: <p>{{$posts->last()->category->name}}</p>
-            <p style="overflow-wrap: break-word;">{{$posts->last()->body}}</p>
-            <p>{{$posts->last()->user->name}}</p>
-            <img class="img-responsive" src="{{$posts->last()->photo ? $posts->last()->photo->file : null}}" alt="">
-            <!-- <p>{{$posts->last()->title}}</p> -->
+        <h1 style="border-bottom: 5px solid red;">Blogs of Games Past</h1>
+         
                
 
 
-                <!-- <table class="table">
+                <table class="table">
                 <thead>
                     <tr>
                          <th>Author</th>
@@ -29,7 +23,7 @@
                        
                         <th>Title</th>
                         <th>Photo</th>
-                        {{--<th>Body</th>--}}
+                        
                         <th>Created At</th>
                         <th>Updated At</th>
                     </tr>
@@ -55,11 +49,9 @@
                     </tbody>
                 </table>
 
-                {{--<div class="row">{{$post->body}}</div>--}} -->
-                <a href="{{ url('/posts/create') }}" class="btn btn-primary">Add Blog</a>
-             <a href="{{ url('/posts/all') }}" class="btn btn-primary">View Past Blogs</a>
-
-
+                <div class="row">{{$post->body}}</div>
+            
+             
             </div>
         </div>
     </div>

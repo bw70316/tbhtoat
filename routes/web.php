@@ -125,7 +125,7 @@ Route::resource('/games', 'GamesController');
 Route::get('/home', 'HomeController@index');
 
 // Route::get('/post/{id}', ['as'=>'home.posts', 'uses'=>'PostsController@post']);
-
+Route::get('/posts/all', ['uses'=>'PostsController@all']);
 Route::resource('/posts', 'PostsController');
 
 
