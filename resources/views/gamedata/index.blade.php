@@ -1,4 +1,4 @@
-@extends('layouts.admin')
+@extends('layouts.create')
 
 
 
@@ -31,13 +31,13 @@
 
             @foreach($gamedatas as $gamedata)
           <tr>
-            <td>{{$gamedata->year}}</td>
+            <td>{{$gamedata->ar}}</td>
               
 
           @endforeach
           @endif
         </tbody>
       </table>
-
+      {{$gamedatas->render()}}
     </div>
     @stop

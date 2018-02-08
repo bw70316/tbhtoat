@@ -15,7 +15,7 @@ class GameDataController extends Controller
     public function index()
     {
         //
-        $gamedatas = GameData::all();
+        $gamedatas = GameData::paginate(25);
 
         return view('gamedata.index', compact('gamedatas'));
     }
