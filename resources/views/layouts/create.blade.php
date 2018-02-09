@@ -12,14 +12,18 @@
     <title>TBHToaT</title>
 
     <!-- Bootstrap Core CSS -->
-   
+
 
     <link href="{{asset('css/libs.css')}}" rel="stylesheet">
 
     <link href="{{asset('css/app.css')}}" rel="stylesheet">
 
+  
+
+   
 @yield('styles')
 <link rel="icon" type="image/png" href="/images/download.png" sizes="16x16" />
+
 
 <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -151,12 +155,14 @@
 <!-- /.container -->
 
 <!-- jQuery -->
-<script src="{{asset('js/libs.js')}}"></script>
+
+
+
 
 @yield('scripts')
 
 
-
+<script src="{{asset('js/libs.js')}}"></script>
 </body>
 
 </html>

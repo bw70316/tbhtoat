@@ -11,7 +11,7 @@
 |
 */
 
-
+use App\Data;
  // This index route, taken here as soon as you log in. There is also a home route.
 
 Route::get('/', function () {
@@ -109,6 +109,12 @@ Route::group(['middleware'=>'admin'], function(){
 
 });
 
+Route::get ( '/data', function () {
+    $data = Data::all ();
+    return view ( 'data' )->withData ( $data );
+} );
+
+
 Route::delete('admin/delete/media', 'AdminMediasController@deleteMedia');
 
 Route::group(['middleware'=>'auth'], function() {
@@ -117,7 +123,12 @@ Route::group(['middleware'=>'auth'], function() {
     Route::post('reply/comment', 'CommentRepliesController@createReply');
 });
 Route::resource('/games', 'GamesController');
-Route::resource('/gamedata', 'GameDataController');
+
+
+Route::get ( '/data', function () {
+    $data = Data::all ();
+    return view ( 'data' )->withData ( $data );
+} );
 
 
 

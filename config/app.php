@@ -152,6 +152,10 @@ return [
         // Tiny Editor
         Unisharp\Laravelfilemanager\LaravelFilemanagerServiceProvider::class,
         Intervention\Image\ImageServiceProvider::class,
+        //Data Tables
+        Yajra\DataTables\DataTablesServiceProvider::class,
+        Yajra\DataTables\ButtonsServiceProvider::class,
+        Yajra\DataTables\FractalServiceProvider::class,
 
         /*
          * Application Service Providers...
