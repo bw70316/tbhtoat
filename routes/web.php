@@ -109,6 +109,10 @@ Route::group(['middleware'=>'admin'], function(){
 
 });
 
+Route::get('datatable', 'DataTableController@datatable');
+// Get Data
+Route::get('datatable/getdata', 'DataTableController@getPosts')->name('datatable/getdata');
+
 Route::get ( '/data', function () {
     $data = Data::all ();
     return view ( 'data' )->withData ( $data );
@@ -125,10 +129,10 @@ Route::group(['middleware'=>'auth'], function() {
 Route::resource('/games', 'GamesController');
 
 
-Route::get ( '/data', function () {
-    $data = Data::all ();
-    return view ( 'data' )->withData ( $data );
-} );
+// Route::get ( '/data', function () {
+//     $data = Data::all ();
+//     return view ( 'data' )->withData ( $data );
+// } );
 
 
 

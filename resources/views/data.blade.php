@@ -1,21 +1,19 @@
 
-<!DOCTYPE html>
 <html>
 <head>
 <title>Datatables implementation in laravel - justlaravel.com</title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
+
 <script src="//code.jquery.com/jquery-1.12.3.js"></script>
 <script src="//cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script>
 <script
-	src="https://cdn.datatables.net/1.10.12/js/dataTables.bootstrap.min.js"></script>
+    src="https://cdn.datatables.net/1.10.12/js/dataTables.bootstrap.min.js"></script>
 <link rel="stylesheet"
-	href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
 <link rel="stylesheet"
-	href="https://cdn.datatables.net/1.10.12/css/dataTables.bootstrap.min.css">
-<script
-	src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    href="https://cdn.datatables.net/1.10.12/css/dataTables.bootstrap.min.css">
 </head>
 <style>
 </style>
@@ -38,13 +36,10 @@
 				</thead>
 				@foreach($data as $item)
 				<tr class="item{{$item->id}}">
-					<td>{{$item->ar}}</td>
-					<td>{{$item->first_name}}</td>
-					<td>{{$item->last_name}}</td>
-					<td>{{$item->email}}</td>
-					<td>{{$item->gender}}</td>
-					<td>{{$item->country}}</td>
-					<td>{{$item->salary}}</td>
+					<td>{{$item->game}}</td>
+					<td>{{$item->team}}</td>
+					<td>{{$item->opponent}}</td>
+					
 					<td><button class="edit-modal btn btn-info"
 							data-info="{{$item->id}},{{$item->first_name}},{{$item->last_name}},{{$item->email}},{{$item->gender}},{{$item->country}},{{$item->salary}}">
 							<span class="glyphicon glyphicon-edit"></span> Edit
@@ -228,8 +223,8 @@ function fillmodalData(details){
             	 else {
             		 
                      $('.error').addClass('hidden');
-                $('.item' + data.id).replaceWith("<tr class='item" + data.id + "'><td>" +
-                        data.id + "</td><td>" + data.first_name +
+                $('.item' + data.game).replaceWith("<tr class='item" + data.game + "'><td>" +
+                        data.team + "</td><td>" + data.opponent +
                         "</td><td>" + data.last_name + "</td><td>" + data.email + "</td><td>" +
                          data.gender + "</td><td>" + data.country + "</td><td>" + data.salary +
                           "</td><td><button class='edit-modal btn btn-info' data-info='" + data.id+","+data.first_name+","+data.last_name+","+data.email+","+data.gender+","+data.country+","+data.salary+"'><span class='glyphicon glyphicon-edit'></span> Edit</button> <button class='delete-modal btn btn-danger' data-info='" + data.id+","+data.first_name+","+data.last_name+","+data.email+","+data.gender+","+data.country+","+data.salary+"' ><span class='glyphicon glyphicon-trash'></span> Delete</button></td></tr>");

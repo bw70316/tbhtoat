@@ -12,7 +12,7 @@
     <title>TBHToaT</title>
 
     <!-- Bootstrap Core CSS -->
-
+    <script src="//code.jquery.com/jquery-1.12.3.js"></script>
 
     <link href="{{asset('css/libs.css')}}" rel="stylesheet">
 
@@ -47,7 +47,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#">TBHToaT</a>
+            <a class="navbar-brand" href="/home">TBHToaT</a>
         </div>
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
