@@ -15,7 +15,7 @@ class CreateDatatablesDataTable extends Migration
     {
         Schema::create('datatables_data', function (Blueprint $table) {
             $table->increments('id');
-            $table->interger('year');
+            $table->integer('year');
             $table->integer('game');
             $table->string('team');
             $table->integer('win');

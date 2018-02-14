@@ -7,22 +7,21 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 
+<script src="https://code.jquery.com/jquery-1.12.4.js"</script>
+ <script src = "https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
 
-<script src="//cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script>
 <script
 	src="https://cdn.datatables.net/1.10.12/js/dataTables.bootstrap.min.js"></script>
-<link rel="stylesheet"
-	href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-<!-- <link rel="stylesheet"
-	href="https://cdn.datatables.net/1.10.12/css/dataTables.bootstrap.min.css"> -->
+
+
 <script
 	src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-    <script src="//code.jquery.com/jquery-1.12.3.js"></script>
-    </script>
+    
 <script src="https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script>
 
-
-<link href="https://cdn.datatables.net/1.10.12/css/jquery.dataTables.min.css" rel="stylesheet">
+<link href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css" rel="stylesheet">
+<link rel="stylesheet"
+	href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
 </head>
 <style>
 
@@ -60,44 +59,73 @@
 </nav>
 <div class="container" style="margin-top:80px;">
 		{{ csrf_field() }}
-		<div class="col-sm-9"
-			<div class="table-responsive text-center">
-				<table class="table table-borderless" id="table">
-				<thead>
-					<tr>
-						<th class="text-center">Year</th>
-						<th class="text-center">Game #</th>
-                        <th class="text-center">Team</th>
-						<th class="text-center">Opponent</th>
+	<div class="col-sm-9">
+		<div class="table-responsive text-center">
+        <table id="table" class="display" cellspacing="0" width="100%">
+				<tbody style="color:blue; text-align:center;"> 
+                    <thead>
+                   
+					    <tr>
+                        <th class="text-center">id</th>
+						    <th class="text-center">Year</th>
+						    <th class="text-center">Game #</th>
+                            <th class="text-center">Home Team</th>
+						    <th class="text-center">Away Team</th>
+                            <th class="text-center">Home Win</th>
+						    <th class="text-center">Away Win</th>
+                            <th class="text-center">Tie</th>
+						    <th class="text-center">Stage</th>
+                            <th class="text-center">Round</th>
+						    <th class="text-center">Stage Series</th>
+                            <th class="text-center">Series Game</th>
+						    <th class="text-center">Home Score</th>
+                            <th class="text-center">Away Score</th>
+                            
 					
-					</tr>
-				</thead>
+					    </tr>
+				    </thead>
+                </tbody>
 			
-			</table>
-		</div>
-		</div>
-	</div>
+		    </table>
+	    </div>
+    </div>
+</div>
 			
 
 
 
 <script type="text/javascript">
 $(document).ready(function() {
-    $('.table').DataTable({
+    $('#table').DataTable({
+      
         processing: true,
         serverSide: true,
-        order: [],
-        orderFixed: {
-        "post": [[ 0, 'asc' ], [ 1, 'asc' ]]
-    },
+        order: [],      
+    columnDefs: [
+    { "orderable": false, "targets": [10] }
+  ],
 
         ajax: '{{ route('datatable/getdata') }}',
  
         columns: [
+            {data: 'id', name: 'id', "fnCreatedCell": function (nTd, sData, oData, iRow, iCol) {
+            $(nTd).html("<a href=/games/"+oData.id+">"+oData.id+"</a>");
+        }},
             {data: 'year', name: 'year'},
+            
             {data: 'game', name: 'game'},
-            {data: 'team', name: 'team'},
-            {data: 'opponent', name: 'opponent'},
+            {data: 'awayTeam', name: 'awayTeam'},
+            {data: 'homeTeam', name: 'homeTeam'},
+            {data: 'homeWin', name: 'homeWin'},
+            {data: 'awayWin', name: 'awayWin'},
+            {data: 'tie', name: 'tie'},
+            {data: 'stage', name: 'stage'},
+            {data: 'round', name: 'round'},
+            {data: 'stageSeries', name: 'stageSeries'},
+            {data: 'seriesGame', name: 'seriesGame'},
+            {data: 'homeScore', name: 'homeScore'},
+            {data: 'awayScore', name: 'awayScore'},
+           
         ]
         
     });

@@ -109,9 +109,13 @@ Route::group(['middleware'=>'admin'], function(){
 
 });
 
+Route::resource('year', 'DataYearController');
+
 Route::get('datatable', 'DataTableController@datatable');
 // Get Data
 Route::get('datatable/getdata', 'DataTableController@getPosts')->name('datatable/getdata');
+
+Route::get('datatable/yearview', 'DataTableController@yearview');
 
 Route::get ( '/data', function () {
     $data = Data::all ();

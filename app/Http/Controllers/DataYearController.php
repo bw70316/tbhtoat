@@ -2,19 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Game;
-use App\Http\Requests\GamesCreateRequest;
-use App\Level;
-use App\Option;
-use App\Team;
-use App\GameData;
-use App\Win;
 use Illuminate\Http\Request;
+use App\GameData;
 
-use App\Http\Requests;
-use Illuminate\Support\Facades\Auth;
-
-class GamesController extends Controller
+class DataYearController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -23,11 +14,11 @@ class GamesController extends Controller
      */
     public function index()
     {
-        $games = Game::paginate(2);
-
-        return view('games.index', compact('games'));
-
         //
+        $gamedatas = GameData::all();
+        
+     
+        return view('year.index', compact('gamedatas'));
     }
 
     /**
@@ -36,17 +27,8 @@ class GamesController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function create()
-
     {
-
-        $wins = Win::pluck('name', 'id')->all();
-        $teams = Team::pluck('name', 'id')->all();
-        $levels = Level::pluck('name', 'id')->all();
-        $options = Option::pluck('name', 'id')->all();
-
-
-
-        return view('games.create', compact('wins', 'teams','levels', 'options'));
+        //
     }
 
     /**
@@ -55,22 +37,9 @@ class GamesController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(GamesCreateRequest $request)
+    public function store(Request $request)
     {
         //
-        $input = $request->all();
-
-
-
-        $user = Auth::user();
-
-        // View
-        $user->games()->create($input);
-
-
-
-       return redirect('/games');
-
     }
 
     /**
@@ -81,10 +50,12 @@ class GamesController extends Controller
      */
     public function show($id)
     {
-        //
         $gamedatas = GameData::findOrFail($id);
 
-        return view('games/show', compact('gamedatas'));
+     
+
+
+        return view('year/show', compact('gamedatas'));
     }
 
     /**
@@ -119,5 +90,11 @@ class GamesController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function viewyear($id)
+    {
+        //
+      
     }
 }

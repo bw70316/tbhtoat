@@ -5,7 +5,6 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-
 <script src="//code.jquery.com/jquery-1.12.3.js"></script>
 <script src="//cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script>
 <script
@@ -21,7 +20,7 @@
 	<div class="container ">
 		{{ csrf_field() }}
 		<div class="table-responsive text-center">
-			<table class="table table-borderless" id="table">
+			<table class="table" id="table">
 				<thead>
 					<tr>
 						<th class="text-center">#</th>

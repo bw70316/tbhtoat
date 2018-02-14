@@ -13,11 +13,17 @@ class DataTableController extends Controller
 {    
     public function datatable()
     {
+        
         return view('datatable');
     }
 
     public function getPosts()
     {
         return \DataTables::of(GameData::query())->make(true);
+    }
+
+    public function yearview()
+    {
+  
     }
 }

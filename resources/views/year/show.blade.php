@@ -1,0 +1,1 @@
+<h1>{{$gamedatas->year}}</h1>
