@@ -111,7 +111,7 @@
                         <ul class="list-unstyled">
                             <li><a href="#">Category Name</a>
                             </li>
-                            <li><a href="{{$post->categories}}">Category Name</a>
+                            <li><a href="#">Category Name</a>
                             </li>
                             <li><a href="#">Category Name</a>
                             </li>

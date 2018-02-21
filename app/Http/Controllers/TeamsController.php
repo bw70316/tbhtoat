@@ -3,9 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Data;
+use App\GameData;
+use App\Team;
+use App\Losers;
 
-class DataController extends Controller
+class TeamsController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,8 +17,7 @@ class DataController extends Controller
     public function index()
     {
         //
-    //     $data = Data::all ();
-    //   return view ( 'data' )->withData ( $data );
+        return 'hello';
     }
 
     /**
@@ -48,9 +49,14 @@ class DataController extends Controller
      */
     public function show($id)
     {
-        //
-
         
+        $teamdatas = GameData::findOrFail($id);
+       
+
+
+        return view('teams/show', compact('teamdatas'));
+
+
     }
 
     /**
@@ -87,18 +93,11 @@ class DataController extends Controller
         //
     }
 
-    public function datatable()
+    public function display($slug)
     {
-        //
-        return view('data');
+        $teams = Losers::findBySlugOrFail($slug);
+        
+        return view('teams/display', compact('teams'));
+
     }
-
-
-    public function getPosts()
-    {
-        //
-        return \datatable::of(User::query())->make(true);
-    }
-
-
 }

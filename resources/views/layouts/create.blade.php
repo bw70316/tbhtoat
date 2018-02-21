@@ -125,8 +125,7 @@
                         </ul>
                     </div>
                 </div>
-                <!-- /.row -->
-            </div>
+              </div>
 
             <!-- Side Widget Well -->
             <div class="well">
@@ -138,6 +137,7 @@
 
     </div>
     <!-- /.row -->
+    </div>
 
     <hr>
 

@@ -9,7 +9,7 @@ use Cviebrock\EloquentSluggable\SluggableScopeHelpers;
 
 
 //implements SluggableInterface
-class Post extends Model
+class Post extends Model implements SluggableInterface
 {
     //
 

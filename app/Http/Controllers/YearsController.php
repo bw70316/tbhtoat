@@ -3,9 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Data;
+use App\GameData;
 
-class DataController extends Controller
+
+class YearsController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,8 +16,7 @@ class DataController extends Controller
     public function index()
     {
         //
-    //     $data = Data::all ();
-    //   return view ( 'data' )->withData ( $data );
+       return view('years.index');
     }
 
     /**
@@ -49,8 +49,9 @@ class DataController extends Controller
     public function show($id)
     {
         //
+        $years = GameData::findOrFail($id);
 
-        
+        return view('years/show', compact('years'));
     }
 
     /**
@@ -87,18 +88,12 @@ class DataController extends Controller
         //
     }
 
-    public function datatable()
+    public function getDisplay($id)
     {
         //
-        return view('data');
+        $data = GameData::find($id);
+
+        return view('years/display')->withData($years);
     }
-
-
-    public function getPosts()
-    {
-        //
-        return \datatable::of(User::query())->make(true);
-    }
-
 
 }

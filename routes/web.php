@@ -109,7 +109,11 @@ Route::group(['middleware'=>'admin'], function(){
 
 });
 
+Route::get('/years/display/{id}', 'YearsController@getDisplay');
+
 Route::resource('year', 'DataYearController');
+
+Route::resource('years', 'YearsController');
 
 Route::get('datatable', 'DataTableController@datatable');
 // Get Data
@@ -117,10 +121,10 @@ Route::get('datatable/getdata', 'DataTableController@getPosts')->name('datatable
 
 Route::get('datatable/yearview', 'DataTableController@yearview');
 
-Route::get ( '/data', function () {
-    $data = Data::all ();
-    return view ( 'data' )->withData ( $data );
-} );
+// Route::get ( '/data', function () {
+//     $data = Data::all ();
+//     return view ( 'data' )->withData ( $data );
+// } );
 
 
 Route::delete('admin/delete/media', 'AdminMediasController@deleteMedia');
@@ -131,6 +135,13 @@ Route::group(['middleware'=>'auth'], function() {
     Route::post('reply/comment', 'CommentRepliesController@createReply');
 });
 Route::resource('/games', 'GamesController');
+
+Route::get('/games/showyear/{id}', 'GamesController@showyear');
+
+Route::resource('/teams', 'TeamsController');
+
+Route::get('/teams/{$slug}', 'TeamsController@display');
+
 
 
 // Route::get ( '/data', function () {
