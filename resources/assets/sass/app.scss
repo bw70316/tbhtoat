@@ -10,6 +10,14 @@
 }
 
 
+#challenge_winner {
+  color:green;
+  
+}
+
+#challenge_loser {
+  color:red;
+}
 
 #hockey-welcome {
   color:red
@@ -103,4 +111,30 @@ li.game{
 
   li.game-bottom{ 
     border-top:1px solid #aaa;
+  }
+
+  #groupa {
+    float: left;
+    text-align:left;
+    list-style-type: none;
+
+  }
+
+  #groupb {
+    float: left;
+    text-align:left;
+    list-style-type: none;
+
+  }
+
+  #group_stage {
+    width:610px;
+  }
+
+  #challenge_stage {
+    width: 680px;
+  }
+
+  #challenge_three {
+    color:purple;
   }

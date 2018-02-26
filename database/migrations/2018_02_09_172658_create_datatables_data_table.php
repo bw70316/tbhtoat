@@ -39,7 +39,7 @@ class CreateDatatablesDataTable extends Migration
             $table->integer('otTwo');
             $table->integer('otThree');
             $table->integer('elimination');
-            $table->integer('foreiture');
+            $table->integer('forfeiture');
             $table->timestamps();
     });
     }
