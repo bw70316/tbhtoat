@@ -134,12 +134,22 @@
                     </ul>
                     <ul id="groupa">
                       <p> Challenge Group E</p>
+                      @if($challengeewinthrees)
+
+            @foreach($challengeewinthrees as $challengeewinthree)
+                          @if($challengeewinthree)
+                          <li id="challenge_three"> {{$challengeewinthree->team}}*</li>
+                           @endif
+                      @endforeach
+
+                      @else 
                      
                         @foreach($challengeewins as $challengeewin)
                             @if($challengeewin)
                             <li id="challenge_winner"> {{$challengeewin->team}}</li>
                              @endif
                         @endforeach
+                        @endif
                         @foreach($challengelosees as $challengelosee)
                             @if($challengelosee)
                             <li id="challenge_loser"> {{$challengelosee->team}}</li>
@@ -148,12 +158,22 @@
                     </ul>
                     <ul id="groupa">
                       <p> Challenge Group F</p>
+                      @if($challengefwinthrees)
+
+            @foreach($challengefwinthrees as $challengefwinthree)
+                          @if($challengefwinthree)
+                          <li id="challenge_three"> {{$challengefwinthree->team}}*</li>
+                           @endif
+                      @endforeach
+
+                      @else 
                      
                         @foreach($challengefwins as $challengefwin)
                             @if($challengefwin)
                             <li id="challenge_winner"> {{$challengefwin->team}}</li>
                              @endif
                         @endforeach
+                        @endif
                         @foreach($challengelosefs as $challengelosef)
                             @if($challengelosef)
                             <li id="challenge_loser"> {{$challengelosef->team}}</li>
@@ -162,12 +182,22 @@
                     </ul>
                     <ul id="groupa">
                       <p> Challenge Group G</p>
+                      @if($challengegwinthrees)
+
+        @foreach($challengegwinthrees as $challengegwinthree)
+                        @if($challengegwinthree)
+                            <li id="challenge_three"> {{$challengegwinthree->team}}*</li>
+                        @endif
+                                @endforeach
+
+                             @else 
                      
                         @foreach($challengegwins as $challengegwin)
                             @if($challengegwin)
                             <li id="challenge_winner"> {{$challengegwin->team}}</li>
                              @endif
                         @endforeach
+                        @endif
                         @foreach($challengelosegs as $challengeloseg)
                             @if($challengeloseg)
                             <li id="challenge_loser"> {{$challengeloseg->team}}</li>
@@ -176,12 +206,22 @@
                     </ul>
                     <ul id="groupa">
                       <p> Challenge Group H</p>
+                      @if($challengehwinthrees)
+
+        @foreach($challengehwinthrees as $challengehwinthree)
+                        @if($challengehwinthree)
+                            <li id="challenge_three"> {{$challengehwinthree->team}}*</li>
+                        @endif
+                                @endforeach
+
+                             @else 
                      
                         @foreach($challengehwins as $challengehwin)
                             @if($challengehwin)
                             <li id="challenge_winner"> {{$challengehwin->team}}</li>
                              @endif
                         @endforeach
+                        @endif
                         @foreach($challengelosehs as $challengeloseh)
                             @if($challengeloseh)
                             <li id="challenge_loser"> {{$challengeloseh->team}}</li>
@@ -190,29 +230,215 @@
                     </ul>
                     <ul id="groupa">
                       <p> Challenge Group I</p>
+                      
+                      @if($challengeiwinthrees)
+
+        @foreach($challengeiwinthrees as $challengeiwinthree)
+                        @if($challengeiwinthree)
+                            <li id="challenge_three"> {{$challengeiwinthree->team}}*</li>
+                        @endif
+                                @endforeach
+
+                             @else 
                      
-                        @foreach($challengeiwins as $challengeiwin)
-                            @if($challengeiwin)
-                            <li id="challenge_winner"> {{$challengeiwin->team}}</li>
+                        @foreach($challengezwins as $challengezwin)
+                            @if($challengezwin)
+                            <li id="challenge_winner"> {{$challengezwin->team}}</li>
                              @endif
                         @endforeach
+                        @endif
                         @foreach($challengeloseis as $challengelosei)
                             @if($challengelosei)
                             <li id="challenge_loser"> {{$challengelosei->team}}</li>
                              @endif
                         @endforeach
                     </ul>
+                    <ul id="groupa">
+                      <p> Challenge Group J</p>
+                      @if($challengejwinthrees)
+
+@foreach($challengejwinthrees as $challengejwinthree)
+                @if($challengejwinthree)
+                    <li id="challenge_three"> {{$challengejwinthree->team}}*</li>
+                @endif
+                        @endforeach
+
+                     @else 
+                     
+                        @foreach($challengejwins as $challengejwin)
+                            @if($challengejwin)
+                            <li id="challenge_winner"> {{$challengejwin->team}}</li>
+                             @endif
+                        @endforeach
+                        @endif
+                        @foreach($challengelosejs as $challengelosej)
+                            @if($challengelosej)
+                            <li id="challenge_loser"> {{$challengelosej->team}}</li>
+                             @endif
+                        @endforeach
+                    </ul>
+                    <ul id="groupa">
+                    <p> Challenge Group K</p>
+                     
+                    @if($challengekwinthrees)
+
+@foreach($challengekwinthrees as $challengekwinthree)
+                @if($challengekwinthree)
+                    <li id="challenge_three"> {{$challengekwinthree->team}}*</li>
+                @endif
+                        @endforeach
+
+                     @else 
+                     
+                     @foreach($challengekwins as $challengekwin)
+                         @if($challengekwin)
+                         <li id="challenge_winner"> {{$challengekwin->team}}</li>
+                          @endif
+                     @endforeach
+                     @endif
+                     @foreach($challengeloseks as $challengelosek)
+                         @if($challengelosek)
+                         <li id="challenge_loser"> {{$challengelosek->team}}</li>
+                          @endif
+                     @endforeach
+                 </ul>
+                 <ul id="groupa">
+                    <p> Challenge Group L</p>
+                    @if($challengelwinthrees)
+
+@foreach($challengelwinthrees as $challengelwinthree)
+                @if($challengelwinthree)
+                    <li id="challenge_three"> {{$challengelwinthree->team}}*</li>
+                @endif
+                        @endforeach
+
+                     @else 
+                     
+                     
+                     @foreach($challengelwins as $challengelwin)
+                         @if($challengelwin)
+                         <li id="challenge_winner"> {{$challengelwin->team}}</li>
+                          @endif
+                     @endforeach
+                     @endif
+                     @foreach($challengelosels as $challengelosel)
+                         @if($challengelosel)
+                         <li id="challenge_loser"> {{$challengelosel->team}}</li>
+                          @endif
+                     @endforeach
+                 </ul>
+                 <ul id="groupa">
+                    <p> Challenge Group M</p>
+                    @if($challengemwinthrees)
+
+@foreach($challengemwinthrees as $challengemwinthree)
+                @if($challengemwinthree)
+                    <li id="challenge_three"> {{$challengemwinthree->team}}*</li>
+                @endif
+                        @endforeach
+
+                     @else 
+                     
+                     
+                     @foreach($challengemwins as $challengemwin)
+                         @if($challengemwin)
+                         <li id="challenge_winner"> {{$challengemwin->team}}</li>
+                          @endif
+                     @endforeach
+                     @endif
+                     @foreach($challengelosels as $challengelosem)
+                         @if($challengelosem)
+                         <li id="challenge_loser"> {{$challengelosem->team}}</li>
+                          @endif
+                     @endforeach
+                 </ul>
+                 <ul id="groupa">
+                    <p> Challenge Group N</p>
+                    @if($challengenwinthrees)
+
+@foreach($challengenwinthrees as $challengenwinthree)
+                @if($challengenwinthree)
+                    <li id="challenge_three"> {{$challengenwinthree->team}}*</li>
+                @endif
+                        @endforeach
+
+                     @else 
+                     
+                     @foreach($challengenwins as $challengenwin)
+                         @if($challengenwin)
+                         <li id="challenge_winner"> {{$challengenwin->team}}</li>
+                          @endif
+                     @endforeach
+                     @endif
+                     @foreach($challengelosens as $challengelosen)
+                         @if($challengelosen)
+                         <li id="challenge_loser"> {{$challengelosen->team}}</li>
+                          @endif
+                     @endforeach
+                 </ul>
+                 <ul id="groupa">
+                    <p> Challenge Group O</p>
+                    @if($challengeowinthrees)
+
+@foreach($challengeowinthrees as $challengeowinthree)
+                @if($challengeowinthree)
+                    <li id="challenge_three"> {{$challengeowinthree->team}}*</li>
+                @endif
+                        @endforeach
+
+                     @else 
+                     
+                     
+                     @foreach($challengeowins as $challengeowin)
+                         @if($challengeowin)
+                         <li id="challenge_winner"> {{$challengeowin->team}}</li>
+                          @endif
+                     @endforeach
+                     @endif
+                     @foreach($challengeloseos as $challengeloseo)
+                         @if($challengeloseo)
+                         <li id="challenge_loser"> {{$challengeloseo->team}}</li>
+                          @endif
+                     @endforeach
+                 </ul>
+                 <ul id="groupa">
+                    <p> Challenge Group P</p>
+                    @if($challengepwinthrees)
+
+@foreach($challengepwinthrees as $challengepwinthree)
+                @if($challengepwinthree)
+                    <li id="challenge_three"> {{$challengepwinthree->team}}*</li>
+                @endif
+                        @endforeach
+
+                     @else 
+                     
+                     
+                     @foreach($challengepwins as $challengepwin)
+                         @if($challengepwin)
+                         <li id="challenge_winner"> {{$challengepwin->team}}</li>
+                          @endif
+                     @endforeach
+                     @endif
+                     @foreach($challengeloseps as $challengelosep)
+                         @if($challengelosep)
+                         <li id="challenge_loser"> {{$challengelosep->team}}</li>
+                          @endif
+                     @endforeach
+                 </ul>
 
         </div>
             </div>
            <div> <button class="toggle-reply btn btn-primary pull-right" id="groups_button">View Groups</button></div>
+
+           
 <div class="panel panel-default" id="groups">
                 <div class="panel-heading" ><h2>{{$gamedatas->id}} Group Stages</h2> </div>
                     <div class="panel-body">
                         <div class="col-4-sm">
                        
       <ul id="groupa"> 
-        <p style="text-align:center"> Group A</p>            
+        <p> Group A</p>            
             @foreach($groupas as $groupa)
             @if($groupa)
             <li> {{$groupa->team}}</li>
@@ -221,7 +447,7 @@
         </ul>
 
     <ul id="groupa">    
-        <p style="text-align:center"> Group B</p>
+        <p> Group B</p>
             @foreach($groupbs as $groupb)
             @if($groupb)
             <li>{{$groupb->team}}</li>
@@ -230,16 +456,16 @@
     </ul>
 
     <ul id="groupa"> 
-        <p style="text-align:center"> Group C</p>            
+        <p> Group C</p>            
             @foreach($groupcs as $groupc)
              @if($groupc)
-                    <li style="margin-left:5px;"> {{$groupc->team}}</li>
+                    <li> {{$groupc->team}}</li>
              @endif
              @endforeach
         </ul>
 
     <ul id="groupa">    
-        <p style="text-align:center"> Group D</p>
+        <p> Group D</p>
             @foreach($groupds as $groupd)
              @if($groupd)
                 <li>{{$groupd->team}}</li>
@@ -248,7 +474,7 @@
          </ul>
 
            <ul id="groupa">    
-        <p style="text-align:center"> Group E</p>
+        <p> Group E</p>
             @foreach($groupes as $groupe)
              @if($groupe)
                 <li>{{$groupe->team}}</li>
@@ -257,26 +483,26 @@
             
          </ul>
          <ul id="groupa">    
-        <p style="text-align:center"> Group F</p>
+        <p> Group F</p>
             @foreach($groupfs as $groupf)
-             @if($groupe)
-                <li style="margin-left:15px">{{$groupf->team}}</li>
+             @if($groupf)
+                <li>{{$groupf->team}}</li>
              @endif
             @endforeach
          </ul>
          <ul id="groupa">    
-        <p style="text-align:center">Group G</p>
-            @foreach($groupes as $groupe)
-             @if($groupe)
-                <li>{{$groupe->team}}</li>
+        <p>Group G</p>
+            @foreach($groupgs as $groupg)
+             @if($groupg)
+                <li>{{$groupg->team}}</li>
              @endif
             @endforeach
          </ul>
          <ul id="groupa">    
-        <p style="text-align:center">Group H</p>
-            @foreach($groupes as $groupe)
-             @if($groupe)
-                <li style="margin-left:8px">{{$groupe->team}}</li>
+        <p>Group H</p>
+            @foreach($grouphs as $grouph)
+             @if($grouph)
+                <li>{{$grouph->team}}</li>
              @endif
             @endforeach
          </ul>
