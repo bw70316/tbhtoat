@@ -93,6 +93,7 @@ class GamesController extends Controller
     {
         //
         $gamedatas = GameData::findOrFail($id);
+        dd($gamedatas);
 
         return view('games/show', compact('gamedatas'));
     }
@@ -207,7 +208,7 @@ class GamesController extends Controller
         
         //challenge stages winners
 
-        $challengeawins = LoserData::select('team')->where('stage', 'challenge')->where('stageSeries', 'A')->where('ar', $id)->where('elimination', '1')->where('win', '1')->distinct()->get()->all();
+        $challengeawins = LoserData::select('homeScore')->where('stage', 'challenge')->where('stageSeries', 'A')->where('ar', $id)->where('elimination', '1')->where('win', '1')->distinct()->get()->all();
         $challengebwins = LoserData::select('team')->where('stage', 'challenge')->where('stageSeries', 'B')->where('ar', $id)->where('elimination', '1')->where('win', '1')->distinct()->get()->all();
         $challengecwins = LoserData::select('team')->where('stage', 'challenge')->where('stageSeries', 'C')->where('ar', $id)->where('elimination', '1')->where('win', '1')->distinct()->get()->all();
         $challengedwins = LoserData::select('team')->where('stage', 'challenge')->where('stageSeries', 'D')->where('ar', $id)->where('elimination', '1')->where('win', '1')->distinct()->get()->all();
@@ -264,7 +265,48 @@ class GamesController extends Controller
         $challengeowinthrees = LoserData::select('team')->where('stage', 'challenge')->where('stageSeries', 'O')->where('ar', $id)->where('elimination', '1')->where('win', '1')->where('seriesGame', '3')->distinct()->get()->all();
         $challengepwinthrees = LoserData::select('team')->where('stage', 'challenge')->where('stageSeries', 'P')->where('ar', $id)->where('elimination', '1')->where('win', '1')->where('seriesGame', '3')->distinct()->get()->all();
         
+       //playin winners
+       $playinawins = LoserData::select('team')->where('stage', 'play-in')->where('stageSeries', 'A')->where('ar', $id)->where('elimination', '1')->where('win', '1')->distinct()->get()->all();
+       $playinbwins = LoserData::select('team')->where('stage', 'play-in')->where('stageSeries', 'B')->where('ar', $id)->where('elimination', '1')->where('win', '1')->distinct()->get()->all();
+       $playincwins = LoserData::select('team')->where('stage', 'play-in')->where('stageSeries', 'C')->where('ar', $id)->where('elimination', '1')->where('win', '1')->distinct()->get()->all();
+       $playindwins = LoserData::select('team')->where('stage', 'play-in')->where('stageSeries', 'D')->where('ar', $id)->where('elimination', '1')->where('win', '1')->distinct()->get()->all();
+       $playinewins = LoserData::select('team')->where('stage', 'play-in')->where('stageSeries', 'E')->where('ar', $id)->where('elimination', '1')->where('win', '1')->distinct()->get()->all();
+       $playinfwins = LoserData::select('team')->where('stage', 'play-in')->where('stageSeries', 'F')->where('ar', $id)->where('elimination', '1')->where('win', '1')->distinct()->get()->all();
+       $playingwins = LoserData::select('team')->where('stage', 'play-in')->where('stageSeries', 'G')->where('ar', $id)->where('elimination', '1')->where('win', '1')->distinct()->get()->all();
+       $playinhwins = LoserData::select('team')->where('stage', 'play-in')->where('stageSeries', 'H')->where('ar', $id)->where('elimination', '1')->where('win', '1')->distinct()->get()->all();
+       $playiniwins = LoserData::select('team')->where('stage', 'play-in')->where('stageSeries', 'I')->where('ar', $id)->where('elimination', '1')->where('win', '1')->distinct()->get()->all();
+       $playinjwins = LoserData::select('team')->where('stage', 'play-in')->where('stageSeries', 'J')->where('ar', $id)->where('elimination', '1')->where('win', '1')->distinct()->get()->all();
+       $playinkwins = LoserData::select('team')->where('stage', 'play-in')->where('stageSeries', 'K')->where('ar', $id)->where('elimination', '1')->where('win', '1')->distinct()->get()->all();
+       $playinlwins = LoserData::select('team')->where('stage', 'play-in')->where('stageSeries', 'L')->where('ar', $id)->where('elimination', '1')->where('win', '1')->distinct()->get()->all();
+       $playinmwins = LoserData::select('team')->where('stage', 'play-in')->where('stageSeries', 'M')->where('ar', $id)->where('elimination', '1')->where('win', '1')->distinct()->get()->all();
+       $playinnwins = LoserData::select('team')->where('stage', 'play-in')->where('stageSeries', 'N')->where('ar', $id)->where('elimination', '1')->where('win', '1')->distinct()->get()->all();
+       $playinowins = LoserData::select('team')->where('stage', 'play-in')->where('stageSeries', 'O')->where('ar', $id)->where('elimination', '1')->where('win', '1')->distinct()->get()->all();
+       $playinpwins = LoserData::select('team')->where('stage', 'play-in')->where('stageSeries', 'P')->where('ar', $id)->where('elimination', '1')->where('win', '1')->distinct()->get()->all();
        
+
+       //playin losers
+       $playinalosers=  LoserData::select('team')->where('stage', 'play-in')->where('stageSeries', 'A')->where('ar', $id)->where('elimination', '1')->where('loss', '1')->distinct()->get()->all();
+       $playinblosers=  LoserData::select('team')->where('stage', 'play-in')->where('stageSeries', 'B')->where('ar', $id)->where('elimination', '1')->where('loss', '1')->distinct()->get()->all();
+       $playinclosers=  LoserData::select('team')->where('stage', 'play-in')->where('stageSeries', 'C')->where('ar', $id)->where('elimination', '1')->where('loss', '1')->distinct()->get()->all();
+       $playindlosers=  LoserData::select('team')->where('stage', 'play-in')->where('stageSeries', 'D')->where('ar', $id)->where('elimination', '1')->where('loss', '1')->distinct()->get()->all();
+       $playinelosers=  LoserData::select('team')->where('stage', 'play-in')->where('stageSeries', 'E')->where('ar', $id)->where('elimination', '1')->where('loss', '1')->distinct()->get()->all();
+       $playinflosers=  LoserData::select('team')->where('stage', 'play-in')->where('stageSeries', 'F')->where('ar', $id)->where('elimination', '1')->where('loss', '1')->distinct()->get()->all();
+       $playinglosers=  LoserData::select('team')->where('stage', 'play-in')->where('stageSeries', 'G')->where('ar', $id)->where('elimination', '1')->where('loss', '1')->distinct()->get()->all();
+       $playinhlosers=  LoserData::select('team')->where('stage', 'play-in')->where('stageSeries', 'H')->where('ar', $id)->where('elimination', '1')->where('loss', '1')->distinct()->get()->all();
+       $playinilosers=  LoserData::select('team')->where('stage', 'play-in')->where('stageSeries', 'I')->where('ar', $id)->where('elimination', '1')->where('loss', '1')->distinct()->get()->all();
+       $playinjlosers=  LoserData::select('team')->where('stage', 'play-in')->where('stageSeries', 'J')->where('ar', $id)->where('elimination', '1')->where('loss', '1')->distinct()->get()->all();
+       $playinklosers=  LoserData::select('team')->where('stage', 'play-in')->where('stageSeries', 'K')->where('ar', $id)->where('elimination', '1')->where('loss', '1')->distinct()->get()->all();
+       $playinllosers=  LoserData::select('team')->where('stage', 'play-in')->where('stageSeries', 'L')->where('ar', $id)->where('elimination', '1')->where('loss', '1')->distinct()->get()->all();
+       $playinmlosers=  LoserData::select('team')->where('stage', 'play-in')->where('stageSeries', 'M')->where('ar', $id)->where('elimination', '1')->where('loss', '1')->distinct()->get()->all();
+       $playinnlosers=  LoserData::select('team')->where('stage', 'play-in')->where('stageSeries', 'N')->where('ar', $id)->where('elimination', '1')->where('loss', '1')->distinct()->get()->all();
+       $playinolosers=  LoserData::select('team')->where('stage', 'play-in')->where('stageSeries', 'O')->where('ar', $id)->where('elimination', '1')->where('loss', '1')->distinct()->get()->all();
+       $playinplosers=  LoserData::select('team')->where('stage', 'play-in')->where('stageSeries', 'P')->where('ar', $id)->where('elimination', '1')->where('loss', '1')->distinct()->get()->all();
+
+ 
+       
+
+       //Bubble Winners
+    
 
         $gamedatas = GameData::findOrFail($id);
 
@@ -272,6 +314,6 @@ class GamesController extends Controller
         // return view('games/showyear', compact('record', 'gamedatas'));
     
 
-        return view('games/showyear', compact( 'challengejwins', 'challengejwinthrees', 'challengelwinthrees', 'challengemwinthrees', 'challengepwinthrees', 'challengenwinthrees', 'challengeowinthrees', 'challengelwinthrees', 'challengekwinthrees',  'challengeiwinthrees', 'challengehwinthrees', 'challengefwinthrees', 'challengeewinthrees', 'challengegwinthrees', 'challengeowins', 'challengeloseps', 'challengepwins', 'challengenwins', 'challengeloseos', 'challengelosens', 'challengemwins', 'challengelosems', 'challengelosels', 'challengekwins', 'challengelwins','grouphs', 'groupgs', 'challengekwins', 'challengeloseks', 'challengelosejs', 'challengeawins', 'challengeawinthrees', 'challengedwinthrees', 'challengecwinthrees', 'challengebwinthrees', 'challengeloseis', 'challengezwins', 'challengehwins', 'challengelosehs', 'challengeewins', 'challengefwins', 'challengegwins', 'challengedwins', 'challengecwins', 'challengelosees',  'challengelosebs', 'challengelosefs', 'challengelosegs', 'challengelosecs', 'challengeloseds','challengeloseas', 'challengebwins', 'gamedatas', 'hometwodwins', 'homethreebwinners', '$homeoneelosers', 'hometwocwins', 'hometwobwins', 'homeonesdwins', 'homeonesawins', 'wins', 'homeRecord', 'winners', 'losers', 'homeones', 'homeonealosers', 'homeonesbwins', 'homeoneblosers', 'homeonescwins', 'homeoneclosers', 'homeonedlosers', 'homeonesfwins', 'homeoneflosers', 'homeonesgwins', 'homeoneglosers', 'homeoneshwins', 'homeonehlosers', 'homeonesewins', 'hometwoawins', 'homethreeawinners', 'groupas', 'groupbs', 'groupcs', 'groupds', 'groupes', 'groupfs'));
+        return view('games/showyear', compact( 'challengejwins' ,'challengeawinhscores','playinelosers', 'playinilosers', 'playinklosers','playinnlosers','playinolosers', 'playinplosers', 'playinmlosers', 'playinllosers', 'playinjlosers', 'playinglosers', 'playinhlosers','playinclosers', 'playindlosers', 'playinflosers', 'playinblosers', 'playinalosers', 'playinlwins', 'playinnwins', 'playinpwins', 'playinowins', 'playinmwins', 'playinbwins', 'playincwins', 'playindwins', 'playinewins', 'playinhwins', 'playiniwins', 'playinjwins', 'playinkwins', 'playinfwins', 'playingwins', 'playinalosers', 'playinawins', 'challengejwinthrees', 'challengelwinthrees', 'challengemwinthrees', 'challengepwinthrees', 'challengenwinthrees', 'challengeowinthrees', 'challengelwinthrees', 'challengekwinthrees',  'challengeiwinthrees', 'challengehwinthrees', 'challengefwinthrees', 'challengeewinthrees', 'challengegwinthrees', 'challengeowins', 'challengeloseps', 'challengepwins', 'challengenwins', 'challengeloseos', 'challengelosens', 'challengemwins', 'challengelosems', 'challengelosels', 'challengekwins', 'challengelwins','grouphs', 'groupgs', 'challengekwins', 'challengeloseks', 'challengelosejs', 'challengeawins', 'challengeawinthrees', 'challengedwinthrees', 'challengecwinthrees', 'challengebwinthrees', 'challengeloseis', 'challengezwins', 'challengehwins', 'challengelosehs', 'challengeewins', 'challengefwins', 'challengegwins', 'challengedwins', 'challengecwins', 'challengelosees',  'challengelosebs', 'challengelosefs', 'challengelosegs', 'challengelosecs', 'challengeloseds','challengeloseas', 'challengebwins', 'gamedatas', 'hometwodwins', 'homethreebwinners', '$homeoneelosers', 'hometwocwins', 'hometwobwins', 'homeonesdwins', 'homeonesawins', 'wins', 'homeRecord', 'winners', 'losers', 'homeones', 'homeonealosers', 'homeonesbwins', 'homeoneblosers', 'homeonescwins', 'homeoneclosers', 'homeonedlosers', 'homeonesfwins', 'homeoneflosers', 'homeonesgwins', 'homeoneglosers', 'homeoneshwins', 'homeonehlosers', 'homeonesewins', 'hometwoawins', 'homethreeawinners', 'groupas', 'groupbs', 'groupcs', 'groupds', 'groupes', 'groupfs'));
     }
 }
