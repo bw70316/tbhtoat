@@ -146,7 +146,7 @@
 
 <!-- Side Widget Well -->
 <div class="well">
-    <h3 style="text-align:center; margin-top:-10px">TEAMS</h3>
+    <h3 style="text-align:center; margin-top:-10px;">TEAMS</h3>
      <div class="row">
   
         <div class="col-sm-3">
@@ -221,7 +221,7 @@ $(document).ready(function() {
             {data: 'game', name: 'game'},
 
             {data: 'homeTeam', name: 'homeTeam', "fnCreatedCell": function (nTd, sData, oData, iRow, iCol) {
-            $(nTd).html("<a href=/teams/"+oData.homeTeam+">"+oData.homeTeam+"</a>");
+            $(nTd).html("<a href=/teams/display/"+oData.homeTeam+">"+oData.homeTeam+"</a>");
             }},
 
             {data: 'awayTeam', name: 'awayTeam'},           

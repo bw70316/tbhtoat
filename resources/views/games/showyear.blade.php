@@ -28,7 +28,7 @@
                <p></p>
 @elseif($gamedatas->id === 2006)
 
-            
+             <button class="btn btn-primary " id="groups_button"> Groups</button>
           
             <br><br>
             
@@ -1067,9 +1067,20 @@
 	</ul>		
 </main>
 
-
-              
+               <p><strong>{{$groupawins}}</strong></p>
+           </li>
    
+        @foreach($groupbwins as $groupbwin)
+            @if($groupbwin)
+    <p><strong>{{$groupbwin->team}}</strong></p>
+    @endif
+        @endforeach</li>
+
+          @foreach($groupcwins as $groupcwin)
+            @if($groupcwin)
+    <p><strong>{{$groupcwin->team}}</strong></p>
+    @endif
+        @endforeach</li>
         </div>
     </div>
 

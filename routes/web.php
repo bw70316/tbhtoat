@@ -140,7 +140,10 @@ Route::get('/games/showyear/{id}', 'GamesController@showyear');
 
 Route::resource('/teams', 'TeamsController');
 
-Route::get('/teams/{$slug}', 'TeamsController@display');
+Route::get('/teams/display/{teamdatas?}', 'TeamsController@display', function ($teamdatas = 'Oilers-84') {
+    
+    return $teamdatas;
+});
 
 
 
