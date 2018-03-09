@@ -757,73 +757,241 @@
                         <div class="col-4-sm">
                        
       <ul id="groupa"> 
-        <p>A</p>            
-            @foreach($groupas as $groupa)
-            @if($groupa)
-            <li> {{$groupa->team}}</li>
+        <p>A</p>  
+        @foreach($groupatotwins as $groupatotwin)
+            @if($groupatotwin->ar == 2011)
+            <li id="grouplistb" >86-Canadiens</li>
+            <li id="grouplistb" >Pts:6</li>
+            <li id="grouplistb" >52-Red Wings</li>
+            <li id="grouplistb" >Pts:6</li>
+            <li id="grouplistb" >96-Avalanche</li>
+            <li id="grouplistb" >Pts:6</li>
+            <li id="grouplistb" >80-USA</li>
+            <li id="grouplistb" >Pts:0</li>
+            @elseif($groupatotwin->ar == 2016)  
+            <li id="grouplistb" >82-Islanders</li>
+            <li id="grouplistb" >Pts:9</li>
+            <li id="grouplistb" >96-Avalanche</li>
+            <li id="grouplistb" >Pts:3</li>
+            <li id="grouplistb" >56-Canadiens</li>
+            <li id="grouplistb" >Pts:3</li>
+            <li id="grouplistb" >92-Blackhawks</li>
+            <li id="grouplistb" >Pts:3</li>    
+            @elseif($groupatotwin)
+      
+            <li id="groupwins" > {{$groupatotwin->team}}</li>
+            <li id="groupwins">Pts: {{$groupatotwin->pointTotal}}</li>
             @endif
             @endforeach
         </ul>
 
+           
+          
+
     <ul id="groupa">    
-        <p>B</p>
-            @foreach($groupbs as $groupb)
-            @if($groupb)
-            <li>{{$groupb->team}}</li>
+    <p>B</p>            
+        @foreach($groupbtotwins as $groupbtotwin)
+            @if($groupbtotwin->ar == 2009)
+            <li id="grouplistb" >87-Oilers</li>
+            <li id="grouplistb" >Pts:9</li>
+            <li id="grouplistb" >80-USA</li>
+            <li id="grouplistb" >Pts:3</li>
+            <li id="grouplistb" >03-Wild</li>
+            <li id="grouplistb" >Pts:3</li>
+            <li id="grouplistb" >75-Penguins</li>
+            <li id="grouplistb" >Pts:3</li>
+            @elseif($groupbtotwin->ar == 2006)
+
+             <li id="grouplistb" >94-Canuncks</li>
+            <li id="grouplistb" >Pts:6</li>
+            <li id="grouplistb" >82-Islanders</li>
+            <li id="grouplistb" >Pts:6</li>
+            <li id="grouplistb" >06-Hurricanes</li>
+            <li id="grouplistb" >Pts:6</li>
+            <li id="grouplistb" >93-Nordiques</li>
+            <li id="grouplistb" >Pts:0</li>
+            @elseif($groupbtotwin->ar == 2007)
+
+             <li id="grouplistb" >75-Sabres</li>
+            <li id="grouplistb" >Pts:6</li>
+            <li id="grouplistb" >71-Blackhawks</li>
+            <li id="grouplistb" >Pts:6</li>
+            <li id="grouplistb" >63-Maple Leafs</li>
+            <li id="grouplistb" >Pts:6</li>
+            <li id="grouplistb" >93-Blues</li>
+            <li id="grouplistb" >Pts:0</li>
+            @elseif($groupbtotwin)
+
+            <li id="groupwins"> {{$groupbtotwin->team}}</li>
+            <li id="groupwins"> Pts: {{$groupbtotwin->pointTotal}}</li>
             @endif
             @endforeach
-    </ul>
+        </ul>
 
     <ul id="groupa"> 
-        <p>C</p>            
-            @foreach($groupcs as $groupc)
-             @if($groupc)
-                    <li> {{$groupc->team}}</li>
-             @endif
-             @endforeach
+    <p>C</p>      
+    @foreach($groupctotwins as $groupctotwin)
+            @if($groupctotwin->ar == 2010)
+            <li id="grouplistb" >75-Sabres</li>
+            <li id="grouplistb" >Pts:6</li>
+            <li id="grouplistb" >90-Oilers</li>
+            <li id="grouplistb" >Pts:4</li>
+            <li id="grouplistb" >80-USA</li>
+            <li id="grouplistb" >Pts:4</li>
+            <li id="grouplistb" >75-Penguins</li>
+            <li id="grouplistb" >Pts:3</li>
+
+            @elseif($groupctotwin->ar == 2015)
+
+             <li id="grouplistb" >75-Sabres</li>
+            <li id="grouplistb" >Pts:4</li>
+            <li id="grouplistb" >09-Penguins</li>
+            <li id="grouplistb" >Pts:4</li>
+            <li id="grouplistb" >98-Capitals</li>
+            <li id="grouplistb" >Pts:4</li>
+            <li id="grouplistb" >84-Oilers</li>
+            <li id="grouplistb" >Pts:3</li>
+       @elseif($groupctotwin)
+           
+         
+            <li id="groupwins"> {{$groupctotwin->team}}</li>
+            <li id="groupwins">Pts: {{$groupctotwin->pointTotal}}</li>
+            @endif
+            @endforeach
         </ul>
 
     <ul id="groupa">    
         <p>D</p>
-            @foreach($groupds as $groupd)
-             @if($groupd)
-                <li>{{$groupd->team}}</li>
-             @endif
+        @foreach($groupdtotwins as $groupdtotwin)
+        @if($groupdtotwin->ar == 2006)
+            <li id="grouplistb" >77-Canadiens</li>
+            <li id="grouplistb" >Pts:6</li>
+            <li id="grouplistb" >80-USA</li>
+            <li id="grouplistb" >Pts:4</li>
+            <li id="grouplistb" >98-Caps</li>
+            <li id="grouplistb" >Pts:4</li>
+            <li id="grouplistb" >95-Devils</li>
+            <li id="grouplistb" >Pts:3</li>
+            @else
+            <li id="groupwins"> {{$groupdtotwin->team}}</li>
+            <li id="groupwins">Pts: {{$groupdtotwin->pointTotal}}</li>
+            @endif
             @endforeach
+        </ul>
          </ul>
 
            <ul id="groupa">    
         <p>E</p>
-            @foreach($groupes as $groupe)
-             @if($groupe)
-                <li>{{$groupe->team}}</li>
-             @endif
+        @foreach($groupetotwins as $groupetotwin)
+            @if($groupetotwin->ar == 2009)
+            <li id="grouplistb" >92-BlackHawks</li>
+            <li id="grouplistb" >Pts:9</li>
+            <li id="grouplistb" >97-Red Wings</li>
+            <li id="grouplistb" >Pts:4</li>
+            <li id="grouplistb" >02-Red Wings</li>
+            <li id="grouplistb" >Pts:4</li>
+            <li id="grouplistb" >80-USSR</li>
+            <li id="grouplistb" >Pts:0</li>
+            @elseif($groupetotwin->ar == 2010)
+         
+            <li id="grouplistb" >68-Canadiens</li>
+            <li id="grouplistb" >Pts:6</li>
+            <li id="grouplistb" >52-Red Wings</li>
+            <li id="grouplistb" >Pts:6</li>
+            <li id="grouplistb" >03-Wild</li>
+            <li id="grouplistb" >Pts:3</li>
+            <li id="grouplistb" >97-Red Wings</li>
+            <li id="grouplistb" >Pts:3</li>
+            @elseif(groupetotwin)
+        
+        
+
+ 
+            
+            <li id="groupwins" > {{$groupetotwin->team}}</li>
+            
+            <li id="groupwins" >Pts: {{$groupetotwin->pointTotal}}</li>
+            @endif
             @endforeach
+         
+        </ul>
             
          </ul>
          <ul id="groupa">    
         <p>F</p>
-            @foreach($groupfs as $groupf)
-             @if($groupf)
-                <li>{{$groupf->team}}</li>
-             @endif
+        @foreach($groupftotwins as $groupftotwin)
+            @if($groupftotwin->ar == 2012)
+            <li id="grouplistb" >01-Avalanche</li>
+            <li id="grouplistb" >Pts:7</li>
+            <li id="grouplistb" >80-USSR</li>
+            <li id="grouplistb" >Pts:4</li>
+            <li id="grouplistb" >97-Flyers</li>
+            <li id="grouplistb" >Pts:4</li>
+            <li id="grouplistb" >72-Rangers</li>
+            <li id="grouplistb" >Pts:1</li>
+            @elseif($groupetotwin->ar == 2010)
+         
+            <li id="grouplistb" >93-Islanders</li>
+            <li id="grouplistb" >Pts:6</li>
+            <li id="grouplistb" >90-Bruins</li>
+            <li id="grouplistb" >Pts:6</li>
+            <li id="grouplistb" >63-Maple Leafs</li>
+            <li id="grouplistb" >Pts:3</li>
+            <li id="grouplistb" >02-Sharks</li>
+            <li id="grouplistb" >Pts:3</li>
+            @elseif(groupetotwin)
+            <li id="groupwins" > {{$groupftotwin->team}}</li>
+            <li id="groupwins" >Pts: {{$groupftotwin->pointTotal}}</li>
+            @endif
             @endforeach
+        </ul>
          </ul>
          <ul id="groupa">    
         <p>G</p>
-            @foreach($groupgs as $groupg)
-             @if($groupg)
-                <li>{{$groupg->team}}</li>
-             @endif
+        @foreach($groupgtotwins as $groupgtotwin)
+            @if($groupgtotwin->ar == 2011)
+            <li id="grouplistb" >75-Penguins</li>
+            <li id="grouplistb" >Pts:5</li>
+            <li id="grouplistb" >90-Oilers</li>
+            <li id="grouplistb" >Pts:4</li>
+            <li id="grouplistb" >93-Nordiques</li>
+            <li id="grouplistb" >Pts:4</li>
+            <li id="grouplistb" >97-Flyers</li>
+            <li id="grouplistb" >Pts:3</li>
+            @elseif($groupgtotwin->ar == 2006)
+            <li id="grouplistb" >97-Flyers</li>
+            <li id="grouplistb" >Pts:7</li>
+            <li id="grouplistb" >72-Bruins</li>
+            <li id="grouplistb" >Pts:4</li>
+            <li id="grouplistb" >99-Stars</li>
+            <li id="grouplistb" >Pts:4</li>
+            <li id="grouplistb" >91-North Stars</li>
+            <li id="grouplistb" >Pts:1</li>         
+            @else
+            <li id="groupwins"> {{$groupgtotwin->team}}</li>
+            <li id="groupwins">Pts: {{$groupgtotwin->pointTotal}}</li>
+            @endif
             @endforeach
+        
          </ul>
          <ul id="groupa">    
         <p>H</p>
-            @foreach($grouphs as $grouph)
-             @if($grouph)
-                <li>{{$grouph->team}}</li>
-             @endif
+        @foreach($grouphtotwins as $grouphtotwin)
+        @if($groupgtotwin->ar == 2006)
+            <li id="grouplistb" >06-France</li>
+            <li id="grouplistb" >Pts:6</li>
+            <li id="grouplistb" >02-Red Wings</li>
+            <li id="grouplistb" >Pts:6</li>
+            <li id="grouplistb" >93-Kings</li>
+            <li id="grouplistb" >Pts:6</li>
+            <li id="grouplistb" >75-Flyers</li>
+            <li id="grouplistb" >Pts:0</li>
+            @else
+            <li id="groupwins"> {{$grouphtotwin->team}}</li>
+            <li id="groupwins">Pts: {{$grouphtotwin->pointTotal}}</li>
+            @endif
             @endforeach
+        </ul>
          </ul>
         </div>
             
@@ -1067,25 +1235,19 @@
 	</ul>		
 </main>
 
-               <p><strong>{{$groupawins}}</strong></p>
-           </li>
-   
-        @foreach($groupbwins as $groupbwin)
-            @if($groupbwin)
-    <p><strong>{{$groupbwin->team}}</strong></p>
-    @endif
-        @endforeach</li>
-
-          @foreach($groupcwins as $groupcwin)
-            @if($groupcwin)
-    <p><strong>{{$groupcwin->team}}</strong></p>
-    @endif
-        @endforeach</li>
-        </div>
-    </div>
 
 
 
+    @foreach($headtoheads as $headtohead)
+            @if($headtohead)
+            
+            <li> {{$headtohead->team}} </li>
+            
+           
+            @endif
+            @endforeach
+         
+         
 
 
 

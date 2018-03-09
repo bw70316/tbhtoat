@@ -90,8 +90,35 @@ class TeamsController extends Controller
         //
     }
 
+    
+
     public function display($teamdatas)
     {
+        function createYearsArray()
+{
+    // Logic of the function
+
+     return [
+         2005, 
+         2006,
+         2007,
+         2008,
+         2009,
+         2010,
+         2012,
+        2015,
+        2016,
+        
+     ];
+     }
+
+        $years = createYearsArray();
+
+        $roundoneyearoned = GameData::where('awayteam', $teamdatas)
+     ->where('awayLoss', '1')
+     ->where('stage', 'R16')
+     ->where('round', 'one')
+     ->whereIn('year', $years)->count();
         //Overall Records
        
         $totalhomewins= GameData::where('homeTeam', $teamdatas)->where('homeWin', '1')->count();
@@ -103,14 +130,58 @@ class TeamsController extends Controller
 
         $totallosses= $totalhomelosses+ $totalawaylosses;
 
-        //Year 2005 First Rounds
-        $roundoneyearonea= GameData::where('homeTeam', $teamdatas)->where('homeWin', '1')->where('stage', 'R16')->where('round', 'one')->where('year', '2005')->count();
-        $roundoneyearoneb= GameData::where('awayteam', $teamdatas)->where('awayWin', '1')->where('stage', 'R16')->where('round', 'one')->where('year', '2005')->count();
-        $roundoneyearone= $roundoneyearonea + $roundoneyearoneb;
+        //Bubble Round 2014
 
-        $roundoneyearonec= GameData::where('homeTeam', $teamdatas)->where('homeLoss', '1')->where('stage', 'R16')->where('round', 'one')->where('year', '2005')->count();
-        $roundoneyearoned= GameData::where('awayteam', $teamdatas)->where('awayLoss', '1')->where('stage', 'R16')->where('round', 'one')->where('year', '2005')->count();
-        $roundoneyearoneloss= $roundoneyearonec + $roundoneyearoned;
+        $bubbleyearonea= GameData::where('homeTeam', $teamdatas)->where('homeWin', '1')->where('stage', 'bubble')->where('year', '2014')->count();
+        $bubbleyearoneb=GameData::where('homeTeam', $teamdatas)->where('homeLoss', '1')->where('stage', 'bubble')->where('year', '2014')->count();
+        $bubbleyearone= $bubbleyearonea + $bubbleyearoneb;
+
+        $bubbleyearonec= GameData::where('awayTeam', $teamdatas)->where('awayWin', '1')->where('stage', 'bubble')->where('year', '2014')->count();
+        $bubbleyearoned=GameData::where('awayTeam', $teamdatas)->where('awayLoss', '1')->where('stage', 'bubble')->where('year', '2014')->count();
+        $bubbleyearoneloss= $bubbleyearonec + $bubbleyearoned;
+
+        $bubbleonetiea= gameData::where('awayTeam', $teamdatas)->where('awayTie', '1')->where('stage', 'bubble')->where('year', '2014')->count(); 
+            $bubbleonetieb= gameData::where('homeTeam', $teamdatas)->where('homeTie', '1')->where('stage', 'bubble')->where('year', '2014')->count(); 
+         $bubbleonetie= $bubbleonetiea + $bubbleonetieb;
+
+        //Bubble Round 2015
+
+        $bubbleyeartwoa= GameData::where('homeTeam', $teamdatas)->where('homeWin', '1')->where('stage', 'bubble')->where('year', '2014')->count();
+        $bubbleyeartwob=GameData::where('homeTeam', $teamdatas)->where('homeLoss', '1')->where('stage', 'bubble')->where('year', '2014')->count();
+        $bubbleyeartwo= $bubbleyeartwoa + $bubbleyeartwob;
+
+        $bubbleyeartwoc= GameData::where('awayTeam', $teamdatas)->where('awayWin', '1')->where('stage', 'bubble')->where('year', '2015')->count();
+        $bubbleyeartwod=GameData::where('awayTeam', $teamdatas)->where('awayLoss', '1')->where('stage', 'bubble')->where('year', '2015')->count();
+        $bubbleyeartwoloss= $bubbleyeartwoc + $bubbleyeartwod;
+
+        $bubbletwotiea= GameData::where('awayTeam', $teamdatas)->where('awayTie', '1')->where('stage', 'bubble')->where('year', '2015')->count(); 
+        $bubbletwotieb= GameData::where('homeTeam', $teamdatas)->where('homeTie', '1')->where('stage', 'bubble')->where('year', '2015')->count(); 
+     $bubbletwotie= $bubbletwotiea + $bubbletwotieb;
+
+     //Bubble Round 2016
+
+     $bubbleyearthreea= GameData::where('homeTeam', $teamdatas)->where('homeWin', '1')->where('stage', 'bubble')->where('year', '2016')->count();
+     $bubbleyearthreeb=GameData::where('homeTeam', $teamdatas)->where('homeLoss', '1')->where('stage', 'bubble')->where('year', '2016')->count();
+     $bubbleyearthree= $bubbleyearthreea + $bubbleyearthreeb;
+
+     $bubbleyearthreec= GameData::where('awayTeam', $teamdatas)->where('awayWin', '1')->where('stage', 'bubble')->where('year', '2016')->count();
+     $bubbleyearthreed=GameData::where('awayTeam', $teamdatas)->where('awayLoss', '1')->where('stage', 'bubble')->where('year', '2016')->count();
+     $bubbleyearthreeloss= $bubbleyearthreec + $bubbleyearthreed;
+
+     $bubblethreetiea= gameData::where('awayTeam', $teamdatas)->where('awayTie', '1')->where('year', '2016')->count(); 
+     $bubblethreetieb= gameData::where('homeTeam', $teamdatas)->where('homeTie', '1')->where('year', '2016')->count(); 
+  $bubblethreetie= $bubbletwotiea + $bubbletwotieb;
+       
+        
+
+        //Year 2005 First Rounds
+        // $roundoneyearonea= GameData::where('homeTeam', $teamdatas)->where('homeWin', '1')->where('stage', 'R16')->where('round', 'one')->where('year', '2005')->count();
+        // $roundoneyearoneb= GameData::where('awayteam', $teamdatas)->where('awayWin', '1')->where('stage', 'R16')->where('round', 'one')->where('year', '2005')->count();
+        // $roundoneyearone= $roundoneyearonea + $roundoneyearoneb;
+
+        // $roundoneyearonec= GameData::where('homeTeam', $teamdatas)->where('homeLoss', '1')->where('stage', 'R16')->where('round', 'one')->where('year', '2005')->count();
+        // $roundoneyearoned= GameData::where('awayteam', $teamdatas)->where('awayLoss', '1')->where('stage', 'R16')->where('round', 'one')->where('year', '2005')->count();
+        // $roundoneyearoneloss= $roundoneyearonec + $roundoneyearoned;
 
         //Year 2005 Second Rounds
 
@@ -144,7 +215,7 @@ class TeamsController extends Controller
 
         // Champions
 
-        $yearonechampions= GameData::select('team')->where('win', '1')->where('stage', 'R16')->where('round', 'final')->where('elimination', '1')->where('year', '2005')->get();
+        $yearonechampions= LoserData::select('opponent')->where('win', '1')->where('stage', 'R16')->where('round', 'final')->where('elimination', '1')->where('ar', '2005')->get();
         $yeartwochampion= GameData::select('team')->where('win', '1')->where('stage', 'R16')->where('round', 'final')->where('elimination', '1')->where('year', '2006')->count();
         
         
@@ -208,7 +279,7 @@ class TeamsController extends Controller
         $yearfourhometie= gameData::where('homeTeam', $teamdatas)->where('homeTie', '1')->where('year', '2007')->count(); 
      $yearfourtie= $yearfourawaytie + $yearfourhometie;
         
-            //Records by Year 2009
+            //Total Records by Year 2009
 
             $yearfivehomewin=gameData::where('homeTeam', $teamdatas)->where('homewin', '1')->where('year', '2009')->count(); 
             $yearfiveawaywin= gameData::where('awayTeam', $teamdatas)->where('awaywin', '1')->where('year', '2009')->count(); 
@@ -226,6 +297,15 @@ class TeamsController extends Controller
             $yearfivetotalloss= $yearfivehomeloss + $yearfiveawayloss;
             $yearfivetie= $yearfiveawaytie + $yearfivehometie;
 
+            //2009 Play-In
+
+            $yearfivebubblehomewin=gameData::where('homeTeam', $teamdatas)->where('homewin', '1')->where('stage', 'play-in')->where('year', '2009')->count(); 
+            $yearfivebubbleawaywin= gameData::where('awayTeam', $teamdatas)->where('awaywin', '1')->where('stage', 'play-in')->where('year', '2009')->count(); 
+            $yearfivewinbubble= $yearfivebubblehomewin+$yearfivebubbleawaywin;
+
+            $yearfivebubblehomeloss=gameData::where('homeTeam', $teamdatas)->where('homeloss', '1')->where('stage', 'play-in')->where('year', '2009')->count(); 
+            $yearfivebubbleawayloss= gameData::where('awayTeam', $teamdatas)->where('awayloss', '1')->where('stage', 'play-in')->where('year', '2009')->count(); 
+            $yearfivewinbubbleloss= $yearfivebubblehomeloss+$yearfivebubbleawayloss;
 
 
                 //Records by Year 2010
@@ -246,7 +326,18 @@ class TeamsController extends Controller
         $yearsixhometie= gameData::where('homeTeam', $teamdatas)->where('homeTie', '1')->where('year', '2010')->count(); 
      $yearsixtie= $yearsixawaytie + $yearsixhometie;
 
-     //Records by Year 2011
+       //2010 Play-In
+
+       $yearsixbubblehomewin=gameData::where('homeTeam', $teamdatas)->where('homewin', '1')->where('stage', 'play-in')->where('year', '2010')->count(); 
+       $yearsixbubbleawaywin= gameData::where('awayTeam', $teamdatas)->where('awaywin', '1')->where('stage', 'play-in')->where('year', '2010')->count(); 
+       $yearsixwinbubble= $yearsixbubblehomewin+$yearsixbubbleawaywin;
+
+       $yearsixbubblehomeloss=gameData::where('homeTeam', $teamdatas)->where('homeloss', '1')->where('stage', 'play-in')->where('year', '2010')->count(); 
+       $yearsixbubbleawayloss= gameData::where('awayTeam', $teamdatas)->where('awayloss', '1')->where('stage', 'play-in')->where('year', '2010')->count(); 
+       $yearsixwinbubbleloss= $yearsixbubblehomeloss+$yearsixbubbleawayloss;
+
+
+     //Total Records by Year 2011
 
      $yearsevenhomewin=gameData::where('homeTeam', $teamdatas)->where('homewin', '1')->where('year', '2011')->count(); 
      $yearsevenawaywin= gameData::where('awayTeam', $teamdatas)->where('awaywin', '1')->where('year', '2011')->count(); 
@@ -263,6 +354,17 @@ class TeamsController extends Controller
      $yearsevenawaytie= gameData::where('awayTeam', $teamdatas)->where('awayTie', '1')->where('year', '2011')->count(); 
      $yearsevenhometie= gameData::where('homeTeam', $teamdatas)->where('homeTie', '1')->where('year', '2011')->count(); 
   $yearseventie= $yearsevenawaytie + $yearsevenhometie;
+
+
+        //2011 Play-In
+
+        $yearsevenbubblehomewin=gameData::where('homeTeam', $teamdatas)->where('homewin', '1')->where('stage', 'play-in')->where('year', '2011')->count(); 
+        $yearsevenbubbleawaywin= gameData::where('awayTeam', $teamdatas)->where('awaywin', '1')->where('stage', 'play-in')->where('year', '2011')->count(); 
+        $yearsevenwinbubble= $yearsevenbubblehomewin+$yearsevenbubbleawaywin;
+ 
+        $yearsevenbubblehomeloss=gameData::where('homeTeam', $teamdatas)->where('homeloss', '1')->where('stage', 'play-in')->where('year', '2011')->count(); 
+        $yearsevenbubbleawayloss= gameData::where('awayTeam', $teamdatas)->where('awayloss', '1')->where('stage', 'play-in')->where('year', '2011')->count(); 
+        $yearsevenwinbubbleloss= $yearsevenbubblehomeloss+$yearsevenbubbleawayloss;
 
    //Records by Year 2011
 
@@ -300,6 +402,16 @@ $yeareightawaytie= gameData::where('awayTeam', $teamdatas)->where('awayTie', '1'
 $yeareighthometie= gameData::where('homeTeam', $teamdatas)->where('homeTie', '1')->where('year', '2012')->count(); 
 $yeareighttie= $yeareightawaytie + $yeareighthometie;
 
+  //2012 Play-In
+
+  $yeareightbubblehomewin=gameData::where('homeTeam', $teamdatas)->where('homewin', '1')->where('stage', 'play-in')->where('year', '2012')->count(); 
+  $yeareightbubbleawaywin= gameData::where('awayTeam', $teamdatas)->where('awaywin', '1')->where('stage', 'play-in')->where('year', '2012')->count(); 
+  $yeareightwinbubble= $yeareightbubblehomewin+$yeareightbubbleawaywin;
+
+  $yeareightbubblehomeloss=gameData::where('homeTeam', $teamdatas)->where('homeloss', '1')->where('stage', 'play-in')->where('year', '2012')->count(); 
+  $yeareightbubbleawayloss= gameData::where('awayTeam', $teamdatas)->where('awayloss', '1')->where('stage', 'play-in')->where('year', '2012')->count(); 
+  $yeareightwinbubbleloss= $yeareightbubblehomeloss+$yeareightbubbleawayloss;
+
 //Records by Year 2013
 
 $yearninehomewin=gameData::where('homeTeam', $teamdatas)->where('homewin', '1')->where('year', '2013')->count(); 
@@ -314,9 +426,22 @@ $yearninehomeloss=gameData::where('homeTeam', $teamdatas)->where('homeloss', '1'
 $yearnineawayloss= gameData::where('awayTeam', $teamdatas)->where('awayloss', '1')->where('year', '2013')->count(); 
 $yearninetotalloss= $yearninehomeloss + $yearnineawayloss;
 
+
+
 $yearnineawaytie= gameData::where('awayTeam', $teamdatas)->where('awayTie', '1')->where('year', '2013')->count(); 
 $yearninehometie= gameData::where('homeTeam', $teamdatas)->where('homeTie', '1')->where('year', '2013')->count(); 
 $yearninetie= $yearnineawaytie + $yearninehometie;
+
+//Play-In By Year 2013
+
+$yearninebubblehomewin=gameData::where('homeTeam', $teamdatas)->where('homewin', '1')->where('stage', 'play-in')->where('year', '2013')->count(); 
+  $yearninebubbleawaywin= gameData::where('awayTeam', $teamdatas)->where('awaywin', '1')->where('stage', 'play-in')->where('year', '2013')->count(); 
+  $yearninewinbubble= $yearninebubblehomewin+$yearninebubbleawaywin;
+
+  $yearninebubblehomeloss=gameData::where('homeTeam', $teamdatas)->where('homeloss', '1')->where('stage', 'play-in')->where('year', '2013')->count(); 
+  $yearninebubbleawayloss= gameData::where('awayTeam', $teamdatas)->where('awayloss', '1')->where('stage', 'play-in')->where('year', '2013')->count(); 
+  $yearninewinbubbleloss= $yearninebubblehomeloss+$yearninebubbleawayloss;
+
 
 
 //Year 2014
@@ -337,6 +462,17 @@ $yeartenawaytie= gameData::where('awayTeam', $teamdatas)->where('awayTie', '1')-
 $yeartenhometie= gameData::where('homeTeam', $teamdatas)->where('homeTie', '1')->where('year', '2014')->count(); 
 $yeartentie= $yeartenawaytie + $yeartenhometie;
 
+//Play-In Year 14
+
+$yeartenbubblehomewin=gameData::where('homeTeam', $teamdatas)->where('homewin', '1')->where('stage', 'play-in')->where('year', '2014')->count(); 
+  $yeartenbubbleawaywin= gameData::where('awayTeam', $teamdatas)->where('awaywin', '1')->where('stage', 'play-in')->where('year', '2014')->count(); 
+  $yeartenwinbubble= $yeartenbubblehomewin+$yeartenbubbleawaywin;
+
+  $yeartenbubblehomeloss=gameData::where('homeTeam', $teamdatas)->where('homeloss', '1')->where('stage', 'play-in')->where('year', '2014')->count(); 
+  $yeartenbubbleawayloss= gameData::where('awayTeam', $teamdatas)->where('awayloss', '1')->where('stage', 'play-in')->where('year', '2014')->count(); 
+  $yeartenwinbubbleloss= $yeartenbubblehomeloss+$yeartenbubbleawayloss;
+
+
 //Year 2015
 
 $yearelevenhomewin=gameData::where('homeTeam', $teamdatas)->where('homewin', '1')->where('year', '2015')->count(); 
@@ -354,6 +490,16 @@ $yeareleventotalloss= $yearelevenhomeloss + $yearelevenawayloss;
 $yearelevenawaytie= gameData::where('awayTeam', $teamdatas)->where('awayTie', '1')->where('year', '2015')->count(); 
 $yearelevenhometie= gameData::where('homeTeam', $teamdatas)->where('homeTie', '1')->where('year', '2015')->count(); 
 $yeareleventie= $yearelevenawaytie + $yearelevenhometie;
+
+//Play-in 15
+
+$yearelevenbubblehomewin=gameData::where('homeTeam', $teamdatas)->where('homewin', '1')->where('stage', 'play-in')->where('year', '2015')->count(); 
+  $yearelevenbubbleawaywin= gameData::where('awayTeam', $teamdatas)->where('awaywin', '1')->where('stage', 'play-in')->where('year', '2015')->count(); 
+  $yearelevenwinbubble= $yearelevenbubblehomewin+$yearelevenbubbleawaywin;
+
+  $yearelevenbubblehomeloss=gameData::where('homeTeam', $teamdatas)->where('homeloss', '1')->where('stage', 'play-in')->where('year', '2015')->count(); 
+  $yearelevenbubbleawayloss= gameData::where('awayTeam', $teamdatas)->where('awayloss', '1')->where('stage', 'play-in')->where('year', '2015')->count(); 
+  $yearelevenwinbubbleloss= $yearelevenbubblehomeloss+$yearelevenbubbleawayloss;
 
 //Record 2016
 
@@ -373,9 +519,24 @@ $yeartwelveawaytie= gameData::where('awayTeam', $teamdatas)->where('awayTie', '1
 $yeartwelvehometie= gameData::where('homeTeam', $teamdatas)->where('homeTie', '1')->where('year', '2015')->count(); 
 $yeartwelvetie= $yeartwelveawaytie + $yeartwelvehometie;
 
+//Play-in 2016
 
 
-        return view('teams/display', compact('teamdatas', 'yearonechampions', 'yeartwochampion', 'roundfinalyearoneloss', 'roundfinalyearone', 'roundsemiyearoneloss', 'roundsemiyearone', 'roundtwoyearone', 'roundtwoyearoneloss',  'roundoneyearoneloss', 'roundoneyearone' ,'yeartwelvetotalloss', 'yeartwelvetotalwins', 'yeartwelvetie', 'yeareleventotalwins', 'yeareleventotalloss', 'yeartentotalwins', 'yeartentotalloss','yearninetotalwins', 'yearninetotalloss', 'yeareighttie', 'yearninetie', 'yeartentie', 'yeareleventie', 'yeareighttotalwins', 'yeareighttotalloss', 'yearseventotalwins', 'yearseventotalloss', 'yearseventie', 'yearfivetie', 'yearsixtie', 'yearthreetie', 'yearfourtie' , 'yeartwotie', 'yearsixhometie', 'yearsixtotalwins', 'yearsixtotalloss', 'yearthreetotalwins', 'yearthreetotalloss', 'yearfivetotalwins', 'yearfivetotalloss', 'yearonetotalwins', 'yearonetotalloss',  'yeartwototalwins', 'yeartwototalloss', 'yearfourhomewin', 'yearfourawaywin', 'yearfourtotalwins', 'yearfourhomeloss', 'yearfourawayloss', 'yearfourtotalloss', 'totallosses', 'totalhomelosses', 'totalawaylosses', 'totalhomewins', 'totalwins', 'totalawaywins'));
+$yeartwelvebubblehomewin=gameData::where('homeTeam', $teamdatas)->where('homewin', '1')->where('stage', 'play-in')->where('year', '2016')->count(); 
+  $yeartwelvebubbleawaywin= gameData::where('awayTeam', $teamdatas)->where('awaywin', '1')->where('stage', 'play-in')->where('year', '2016')->count(); 
+  $yeartwelvewinbubble= $yeartwelvebubblehomewin+$yeartwelvebubbleawaywin;
+
+  $yeartwelvebubblehomeloss=gameData::where('homeTeam', $teamdatas)->where('homeloss', '1')->where('stage', 'play-in')->where('year', '2016')->count(); 
+  $yeartwelvebubbleawayloss= gameData::where('awayTeam', $teamdatas)->where('awayloss', '1')->where('stage', 'play-in')->where('year', '2016')->count(); 
+  $yeartwelvewinbubbleloss= $yeartwelvebubblehomeloss+$yeartwelvebubbleawayloss;
+
+
+    $grouparecordhomewin= gameData::where('homeTeam', $teamdatas)->where('homewin', '1')->where('stage', 'group')->where('stageSeries', 'A')->where('year', '2006')->count();
+    $grouparecordawaywin= gameData::where('awayTeam', $teamdatas)->where('awaywin', '1')->where('stage', 'group')->where('stageSeries', 'A')->where('year', '2006')->count();
+    
+
+
+        return view('teams/display', compact('teamdatas', 'roundoneyearoned', 'yeartwelvewinbubble', 'yeartwelvewinbubbleloss', 'yearelevenwinbubble', 'yearelevenwinbubbleloss', 'yeareightwinbubbleloss' , 'yeartenwinbubble', 'yeartenwinbubbleloss', 'yearninewinbubbleloss', 'yearninewinbubble', 'yeareightwinbubble', 'yearsevenwinbubbleloss', 'yearsevenwinbubble', 'yearsixwinbubble', 'yearsixwinbubbleloss', 'yearfivewinbubbleloss',  'yearfivewinbubble', 'bubblehomewins', 'bubbleonetie', 'bubbletwotie', 'bubbleyeartwo', 'bubbleyearthree', 'bubbleyearthreeloss', 'bubblethreetie', 'bubbleyeartwoloss', 'bubbleyearone', 'bubbleyearoneloss', 'yearonechampions', 'yeartwochampion', 'roundfinalyearoneloss', 'roundfinalyearone', 'roundsemiyearoneloss', 'roundsemiyearone', 'roundtwoyearone', 'roundtwoyearoneloss',  'roundoneyearoneloss', 'roundoneyearone' ,'yeartwelvetotalloss', 'yeartwelvetotalwins', 'yeartwelvetie', 'yeareleventotalwins', 'yeareleventotalloss', 'yeartentotalwins', 'yeartentotalloss','yearninetotalwins', 'yearninetotalloss', 'yeareighttie', 'yearninetie', 'yeartentie', 'yeareleventie', 'yeareighttotalwins', 'yeareighttotalloss', 'yearseventotalwins', 'yearseventotalloss', 'yearseventie', 'yearfivetie', 'yearsixtie', 'yearthreetie', 'yearfourtie' , 'yeartwotie', 'yearsixhometie', 'yearsixtotalwins', 'yearsixtotalloss', 'yearthreetotalwins', 'yearthreetotalloss', 'yearfivetotalwins', 'yearfivetotalloss', 'yearonetotalwins', 'yearonetotalloss',  'yeartwototalwins', 'yeartwototalloss', 'yearfourhomewin', 'yearfourawaywin', 'yearfourtotalwins', 'yearfourhomeloss', 'yearfourawayloss', 'yearfourtotalloss', 'totallosses', 'totalhomelosses', 'totalawaylosses', 'totalhomewins', 'totalwins', 'totalawaywins'));
 
     }
 }
