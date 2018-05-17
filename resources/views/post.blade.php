@@ -1,4 +1,4 @@
-@extends('layouts.blog-post')
+@extends('layouts.blog-home')
 
 
 
@@ -6,7 +6,8 @@
 @section('content')
 
 
-
+<div class="row">
+<div class="col-md-8">
 
     <!-- Blog Post -->
 
@@ -25,14 +26,11 @@
 
     <hr>
 
-    <!-- Preview Image -->
-    <!-- @if(isset($post->photo))
-        <img src="{‌{ $post->photo }}" alt="no image">
-    @endif -->
+  
 
-    <img class="img-responsive" src="{{$post->photo ? $post->photo->file : $photo->photoPlaceholder}}" alt="">
+    <img class="img-responsive" src="{{$post->photo ? $post->photo->file : $post->photoPlaceholder()}}" alt="">
     <hr>
- {{$post->body}}
+ {!!$post->body!!}
     
     <hr>
 
@@ -168,7 +166,9 @@
 
     <!-- End Nested Comment -->
 
-
+</div>
+@include("includes.front_sidebar")
+</div>
 
 
 @stop

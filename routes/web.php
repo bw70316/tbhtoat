@@ -14,9 +14,8 @@
 use App\Data;
  // This index route, taken here as soon as you log in. There is also a home route.
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'HomeController@index');
+
 
 //login Auth Route
 
@@ -28,16 +27,13 @@ Route::get('/logout', 'Auth\LoginController@logout');
 
 //This is a created function for the AdminPostsController
 
-Route::get('/post/{id}', ['as'=>'home.post', 'uses'=>'AdminPostsController@post']);
+Route::get('/post/{id}', ['as'=>'home.post', 'uses'=>'HomeController@post']);
 
 //middleware/security for now. Admin role determines access.
 
 Route::group(['middleware'=>'admin'], function(){
 
-    Route::get('/admin', function(){
-        return view('admin.index');
-    });
-
+    Route::get('/admin', 'AdminController@index');
 
     //admin.layouts is utilizing a route function to access these routes. The names array is changing the controller
     //routes I believe to reflect the correct routes. This is nec. b/c if you run a "php artisan route:list" the "admin"

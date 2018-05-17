@@ -9,21 +9,22 @@ use Cviebrock\EloquentSluggable\SluggableScopeHelpers;
 
 
 //implements SluggableInterface
-class Post extends Model implements SluggableInterface
+class Post extends Model
 {
     //
 
     use Sluggable;
     use SluggableScopeHelpers;
+  
 
 
     protected $fillable = [
         'category_id',
-        // 'post_id',
+        'post_id',
        'photo_id',
         'title',
        'body',
-        // 'author',
+        'author',
 
     ];
 
@@ -55,6 +56,6 @@ class Post extends Model implements SluggableInterface
     }
 
     public function photoPlaceholder() {
-        return "http://placehold.it/700x200";
+        return "http://placehold.it/400x200";
     }
 }

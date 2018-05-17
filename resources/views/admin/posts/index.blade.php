@@ -14,11 +14,10 @@
           <tr>
             <th>Id</th>
             <th>Photo</th>
+            <th>Title</th>
             <th>Edit Post</th>
               <th>Category</th>
-              <th>Title</th>
               <th>Author</th>
-              <th>Body</th>
               <th>View Post</th>
               <th>Comments</th>
               <th>Created At</th>
@@ -33,11 +32,11 @@
           <tr>
             <td>{{$post->id}}</td>
               <td><img style= "height: 50px" src="{{$post->photo ? $post->photo->file : "http://placehold.it/50x50"}}" alt="" class="img-responsive img-rounded"></td>
-            <td><a href="{{route('admin.posts.edit', $post->id)}}">{{$post->user->name}}</a></td>
+              <td><a href="{{route('admin.posts.edit', $post->id)}}">{{$post->title}}</td>
+            <td>{{$post->user->name}}</a></td>
               <td>{{$post->category ? $post->category->name : 'Uncategorized'}}</td>
-              <td>{{$post->title}}</td>
+              
               <td>{{$post->author}}</td>
-              <td>{{str_limit($post->body, 50)}}</td>
               <td><a href="{{route('home.post', $post->slug)}}">View Post</a></td>
               <td><a href="{{route('admin.comments.show', $post->id)}}">View Comments</a></td>
               <td>{{$post->created_at->diffForHumans()}}</td>
