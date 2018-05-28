@@ -12,16 +12,13 @@ class AppServiceProvider extends ServiceProvider
      *
      * @return void
      */
-    public function boot()
+    public function boot(UrlGenerator $url)
     {
-        //
-        // view()->composer('partials.sidebar', function($view){
-        
-        // $view->with('gamedatas', GameData::findOrFail();
-
-        // });
+        if(env('REDIRECT_HTTPS')) {
+            $url->formatScheme('https');
+        }
     }
-
+ 
     /**
      * Register any application services.
      *
@@ -29,6 +26,8 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+        if(env('REDIRECT_HTTPS')) {
+            $this->app['request']->server->set('HTTPS', true);
+        }
     }
 }
