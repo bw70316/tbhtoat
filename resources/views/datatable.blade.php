@@ -229,8 +229,15 @@ $(document).ready(function() {
             {data: 'awayWin', name: 'awayWin'},
             {data: 'tie', name: 'tie'},
             {data: 'elimination', name:'elimination'},
-            {data: 'stage', name: 'stage'},
-            {data: 'round', name: 'round'},
+           
+
+            {data: 'stage', name: 'stage', "fnCreatedCell": function (nTd, sData, oData, iRow, iCol) {
+            $(nTd).html("<a href=/stages/display/"+oData.stage+">"+oData.stage+"</a>");
+            }},
+            {data: 'round', name: 'round', "fnCreatedCell": function (nTd, sData, oData, iRow, iCol) {
+            $(nTd).html("<a href=/rounds/display/"+oData.round+">"+oData.round+"</a>");
+            }},
+            
             {data: 'stageSeries', name: 'stageSeries'},
             {data: 'seriesGame', name: 'seriesGame'},
             {data: 'homeScore', name: 'homeScore'},

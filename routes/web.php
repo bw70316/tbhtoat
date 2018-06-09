@@ -141,6 +141,16 @@ Route::get('/teams/display/{teamdatas?}', 'TeamsController@display', function ($
     return $teamdatas;
 });
 
+Route::get('/rounds/display/{rounddatas?}', 'RoundController@display', function ($rounddatas = 'R16') {
+    
+    return $rounddatas;
+});
+
+Route::get('/stages/display/{stagedatas?}', 'StageController@display', function ($stagedatas = 'R16') {
+    
+    return $stagedatas;
+});
+
 
 
 // Route::get ( '/data', function () {
