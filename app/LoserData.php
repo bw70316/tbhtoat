@@ -14,7 +14,7 @@ class LoserData extends Model
 
     use SluggableScopeHelpers;
     use Sluggable;
-
+    protected $table="loser_datas";
     public function sluggable()
 {
     

@@ -119,7 +119,7 @@
                 @foreach(array_slice($data->toArray(), 0, 6) as $item)
                
                  
-                        <a href="3">{{$item ['year'] }}</a>
+                        <a href="game/showyear/{$id}">{{$item ['year'] }}</a>
                         </li>
                      
                  @endforeach

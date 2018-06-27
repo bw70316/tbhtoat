@@ -14,8 +14,10 @@
 use App\Data;
  // This index route, taken here as soon as you log in. There is also a home route.
 
-Route::get('/', 'HomeController@index');
 
+
+
+Route::get('/', 'HomeController@index');
 
 //login Auth Route
 
@@ -68,6 +70,9 @@ Route::group(['middleware'=>'admin'], function(){
         'create'=>'admin.categories.create',
         'store'=>'admin.categories.store',
         'edit'=>'admin.categories.edit',
+    ]]);
+    Route::resource('/games', 'GamesController', ['names'=> [
+        'showyear'=>'games.showyear'
     ]]);
 
 
@@ -132,7 +137,9 @@ Route::group(['middleware'=>'auth'], function() {
 });
 Route::resource('/games', 'GamesController');
 
-Route::get('/games/showyear/{id}', 'GamesController@showyear');
+Route::get('/games/showyear', 'GamesController@showyear');
+
+Route::get('/games/showseason/{id}', 'GamesController@showseason');
 
 Route::resource('/teams', 'TeamsController');
 
@@ -140,6 +147,8 @@ Route::get('/teams/display/{teamdatas?}', 'TeamsController@display', function ($
     
     return $teamdatas;
 });
+
+Route::get('/teams/showteam/$team', 'TeamsController@showteam');
 
 Route::get('/rounds/display/{rounddatas?}', 'RoundController@display', function ($rounddatas = 'R16') {
     

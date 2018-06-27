@@ -902,15 +902,12 @@
             <li id="grouplistb" >Pts:3</li>
             <li id="grouplistb" >97-Red Wings</li>
             <li id="grouplistb" >Pts:3</li>
-            @elseif(groupetotwin)
+            
         
         
 
  
-            
-            <li id="groupwins" > {{$groupetotwin->team}}</li>
-            
-            <li id="groupwins" >Pts: {{$groupetotwin->pointTotal}}</li>
+         
             @endif
             @endforeach
          
@@ -939,7 +936,7 @@
             <li id="grouplistb" >Pts:3</li>
             <li id="grouplistb" >02-Sharks</li>
             <li id="grouplistb" >Pts:3</li>
-            @elseif(groupetotwin)
+         
             <li id="groupwins" > {{$groupftotwin->team}}</li>
             <li id="groupwins" >Pts: {{$groupftotwin->pointTotal}}</li>
             @endif

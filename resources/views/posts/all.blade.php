@@ -1,58 +1,55 @@
-@extends('layouts.create')
-
-
-
+@extends('layouts.blog-home')
 
 @section('content')
 
 <div class="container">
-        <div class="row">
-            <div class="col-sm-6">
-        <h1 style="border-bottom: 5px solid red;">Blogs of Games Past</h1>
-         
-               
+
+<div class="row">
+
+    <!-- Blog Entries Column -->
+    <div class="col-md-8">
+
+    @if($posts)
+
+    @foreach($posts as $post)
+
+        <!-- First Blog Post -->
+        <h2>
+            <a href="#">{{$post->title}}</a>
+        </h2>
+        <p class="lead">
+            by {{$post->user->name}}
+        </p>
+        <p><span class="glyphicon glyphicon-time"></span>{{$post->created_at->diffForHumans()}}</p>
+        <hr>
+        <img class="img-responsive" src="http://placehold.it/900x300" alt="">
+        <hr>
+        <p>{!!str_limit($post->body, 100)!!}</p>
+        <a class="btn btn-primary" href="/post/{{$post->slug}}">Read More <span class="glyphicon glyphicon-chevron-right"></span></a>
+
+        <hr>
+
+        @endforeach
+        @endif
 
 
-                <table class="table">
-                <thead>
-                    <tr>
-                         <th>Author</th>
-                         <th>View Blog</th>
-                        <th>Category</th>
-                    
-                       
-                        <th>Title</th>
-                        <th>Photo</th>
-                        
-                        <th>Created At</th>
-                        <th>Updated At</th>
-                    </tr>
-                </thead>
-                <tbody>
+        <!-- Pager -->
+   <div class="row">
 
-                    @if($posts)
+   <div class="col-sm-8 col-sm-offset-8">
 
-                        @foreach($posts->reverse() as $post)
-                            <tr>
-                                <td>{{$post->user->name}}</td>
-                                <td><a href="{{route('posts.show', $post->id)}}">View Blog</a></td>
-                                <td>{{$post->category ? $post->category->name : 'Uncategorized'}}</td>
-                                <td>{{$post->title}}</td>
-                                <td><img height="100" src="{{$post->photo ? $post->photo->file : 'placehold.it/400x400'}}" alt=""></td>
-                                {{--<td>{{str_limit($post->body, 50)}}</td>--}}
-                                <td>{{$post->created_at->diffForHumans()}}</td>
-                                <td>{{$post->updated_at->diffForHumans()}}</td>
-                            </tr>
-
-                        @endforeach
-                    @endif
-                    </tbody>
-                </table>
-
-           
-            
-             
-            </div>
-        </div>
+   {{$posts->render()}}
+   </div>
+   
+   </div>
     </div>
-@stop
+
+    <!-- Blog Sidebar Widgets Column -->
+    @include('includes.front_sidebar')
+
+</div>
+<!-- /.row -->
+
+@include('includes.footer')
+
+@endsection

@@ -2,54 +2,337 @@
 
 @section('content')
 
-<div class="container">
 
-<div class="row">
-
-    <!-- Blog Entries Column -->
-    <div class="col-md-8">
-
-    @if($posts)
-
-    @foreach($posts as $post)
-
-        <!-- First Blog Post -->
-        <h2>
-            <a href="#">{{$post->title}}</a>
-        </h2>
-        <p class="lead">
-            by {{$post->user->name}}
-        </p>
-        <p><span class="glyphicon glyphicon-time"></span>{{$post->created_at->diffForHumans()}}</p>
-        <hr>
-        <img class="img-responsive" src="http://placehold.it/900x300" alt="">
-        <hr>
-        <p>{!!str_limit($post->body, 100)!!}</p>
-        <a class="btn btn-primary" href="/post/{{$post->slug}}">Read More <span class="glyphicon glyphicon-chevron-right"></span></a>
-
-        <hr>
-
-        @endforeach
-        @endif
-
-
-        <!-- Pager -->
-   <div class="row">
-
-   <div class="col-sm-8 col-sm-offset-8">
-
-   {{$posts->render()}}
-   </div>
-   
-   </div>
-    </div>
 
     <!-- Blog Sidebar Widgets Column -->
-    @include('includes.front_sidebar')
+    <div class="container" style="margin-top:80px;">
+		{{ csrf_field() }}
+    <div class="row">
+    
+	    <div class="col-sm-4">
+		    	
+		<div class="well">
+         <h4 style="text-align:center; margin-top:-10px;">All-Time Power Index</h4>
+          <div class="row">
+            <div class="col-sm-12">
+         
+
+             @if($rankOnes)
+
+             @foreach($rankOnes as $rankOne)
+               <ul>
+                  <li style="list-style-type:none; text-aligned: left"> {{$loop->iteration}}. {{$rankOne->team}}</li>
+                </ul>
+                
+            @endforeach
+            @endif
+            </div>
+            </div>
+          
+            <div class="row">
+            <div class="col-sm-12" id="ranks" style="display:none;">
+            
+            
+            @if($rankTwos)
+
+@foreach($rankTwos as $indexKey => $rankTwo)
+  <ul>
+     <li style="list-style-type:none; text-aligned: left"> {{$indexKey+11}}. {{$rankTwo->team}}</li>
+   </ul>
+@endforeach
+@endif
+
+            </div>
+            </div>
+            <button class="btn btn-primary" onclick="showRanks()">Show All</button>
+
+
+      </div>
+        </div>
+        
+        <div class="col-sm-4">
+		    	
+		<div class="well">
+       <h4 style="text-align:center; margin-top:-10px;">Past Champions</h4>
+    <div class="row">
+        <div class="col-sm-12">
+            <ul class="list-unstyled" style="text-align:center; margin: 7px;">
+            @if($seasonOnes)
+
+            @foreach($seasonOnes as $seasonOne)
+            <strong>2016 Winner</strong>
+
+            <p>{{$seasonOne->am}}<p>
+
+            @endforeach
+            @endif
+            
+           
+      
+           <p>   {!!$seasonOneWins!!}-{!!$seasonOneLosses!!}-{!!$seasonOneTies!!}<p>
+
+
+
+
+
+
+
+@if($seasonTwos)
+
+            @foreach($seasonTwos as $seasonTwo)
+<strong>2015 Winner</strong>
+<br>
+{{$seasonTwo->am}}
+<p>   {!!$seasonTwoWins!!}-{!!$seasonTwoLosses!!}-{!!$seasonTwoTies!!}<p>
+@endforeach
+@endif
+                <br><br>
+@if($seasonThrees)
+
+@foreach($seasonThrees as $seasonThree)
+<strong>2014 Winner</strong>
+<br>
+{{$seasonThree->am}}
+
+@endforeach
+@endif
+
+<br>
+<br>
+@if($seasonFours)
+
+@foreach($seasonFours as $seasonFour)
+<strong>2013 Winner</strong>
+<br>
+{{$seasonFour->am}}
+
+@endforeach
+@endif
+<br>
+<br>
+
+@if($seasonFives)
+
+@foreach($seasonFives as $seasonFive)
+<strong>2012 Winner</strong>
+<br>
+{{$seasonFive->am}}
+
+@endforeach
+@endif
+<br>
+
+
+<div class="details" id="details" style="display:none">
+@if($seasonSixes)
+@foreach($seasonSixes as $seasonSix)
+<strong>2011 Winner</strong>
+<br>
+{{$seasonSix->am}}
+@endforeach
+@endif
+<br>
+<br>
+
+
+
+@if($seasonSevens)
+@foreach($seasonSevens as $seasonSeven)
+<strong>2010 Winner</strong>
+<br>
+{{$seasonSeven->am}}
+
+
+@endforeach
+@endif
+
+<br>
+<br>
+@if($seasonEights)
+@foreach($seasonEights as $seasonEight)
+<strong>2009 Winner</strong>
+<br>
+{{$seasonEight->am}}
+@endforeach
+@endif
+
+<br>
+<br>
+@if($seasonNines)
+@foreach($seasonNines as $seasonNine)
+<strong>2008 Winner</strong>
+<br>
+{{$seasonNine->am}}
+@endforeach
+@endif
+
+<br>
+<br>
+@if($seasonTens)
+@foreach($seasonTens as $seasonTen)
+<strong>2007 Winner</strong>
+<br>
+{{$seasonTen->am}}
+@endforeach
+@endif
+
+<br>
+<br>
+@if($seasonElevens)
+@foreach($seasonElevens as $seasonEleven)
+<strong>2006 Winner</strong>
+<br>
+{{$seasonEleven->am}}
+@endforeach
+@endif
+<br>
+<br>
+
+@if($seasonTwelves)
+@foreach($seasonTwelves as $seasonTwelve)
+<strong>2005 Winner</strong>
+<br>
+{{$seasonTwelve->am}}
+@endforeach
+@endif
+<br>
+<br>
+</div>
+
+
+
+<button class="btn btn-primary" onclick="showChamps()">Show Champs</button>
+            </ul>
+        </div>
+        <div class="col-sm-2">
+        </div>
+    
+        <div class="col-sm-3">
+            <ul class="list-unstyled" style="margin-left:40px">
+          
+                
+            </ul>
+        </div>
+    </div>
+      </div>
+     
+                </div>
+                <div class="col-sm-1">
+                </div>
+        <div class="col-sm-3">
+
+<!-- Blog Search Well -->
+
+
+<!-- Blog Categories Well -->
+<div class="well">
+    <h4 style="text-align:center; margin-top:-10px; margin-right:15px;">YEARS</h4>
+    <div class="row">
+        <div class="col-sm-2">
+            <ul class="list-unstyled" style="margin-left:40px">
+           
+
+                @foreach(array_slice($data->toArray(), 0, 6) as $item)
+               
+                 
+                        <a href="{{route('years.show', $item)}}">{{$item ['year'] }}</a>
+                        </li>
+                     
+                 @endforeach
+            </ul>
+        </div>
+        <div class="col-sm-2">
+        </div>
+    
+        <div class="col-sm-3">
+            <ul class="list-unstyled" style="margin-left:40px">
+            @foreach(array_slice($data->toArray(), 7, 14) as $item)
+               
+                 
+               <a href="{{route('years.show', $item)}}">{{$item ['year'] }}</a>
+               </li>
+            
+        @endforeach
+                
+            </ul>
+        </div>
+    </div>
+  </div>
+ 
+
+<!-- Side Widget Well -->
+<div class="well">
+    <h3 style="text-align:center; margin-top:-10px;">TEAMS</h3>
+     <div class="row">
+  
+        <div class="col-sm-3">
+            <ul class="list-unstyled">
+            @foreach(array_slice($teams->toArray(), 0, 33) as $team)
+         
+               
+           
+            <li style="width: 100px; margin-right:5px;">
+               <a href="/teams/showteam/{$team}">{{$team ['team'] }}</a>
+               </li>
+            
+        @endforeach
+
+              
+            </ul>
+        </div>
+        <div class="col-sm-3">
+        <p>   </p>
+        </div>
+        <div class="col-sm-3">
+            <ul class="list-unstyled">
+            @foreach(array_slice($teams->toArray(), 33, 66) as $team)
+         
+               
+           
+         <li style="width: 100px;">
+         <a href="#">{{$team ['team'] }}</a>
+         </li>
+      
+  @endforeach
+         
+                
+            </ul>
+        </div>
+    </div>
+</div>
 
 </div>
-<!-- /.row -->
+
+</div>
+        </div>
+
+    </div>
+    
+</div>
+			
+
+
+
 
 @include('includes.footer')
 
 @endsection
+
+<script>
+function showChamps() {
+    var x = document.getElementById("details");
+    if (x.style.display === "none") {
+        x.style.display = "block";
+    } else {
+        x.style.display = "none";
+    }
+}
+function showRanks() {
+    var x = document.getElementById("ranks");
+    if (x.style.display === "none") {
+        x.style.display = "block";
+    } else {
+        x.style.display = "none";
+    }
+}
+</script>

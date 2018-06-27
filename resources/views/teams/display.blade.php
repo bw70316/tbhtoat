@@ -7,7 +7,7 @@
 
 <div class="col-sm-8">
 
-    <h1>Welcome to the {{$teamdatas}} Team Page</h1>
+    <h1>Welcome to the $teams Team Page</h1>
 
         <!-- <p>It's been a long and arduous journey for {{$teamdatas}}. There were a lot of highs and lows, a lot of joy and tears, scandals and celebrations. But through it all they perservered, sticking together as a team, and isn't that what Hollywood movies have taught us to be the most important thing of all? With that said, below is a breakdown of the {{$teamdatas}} legacy...  -->
 
@@ -16,15 +16,7 @@
       <h3>  Away Record: {{$totalawaywins}}-{{$totalawaylosses}}</h3>
 
       
-        
-      @foreach($yearonechampions as $yearonechampion)
-                            @if($yearonechampion->team == $teamdatas)
-
-                            <p>{{$yearonechampion->team}} Won the 2005 championships</p>
-                            @else 
-                            <p>this team did not win in 2005<p/>
-                             @endif
-                        @endforeach
+   
                       
 
                       
@@ -234,7 +226,7 @@
 </table>
 
 
-{{$roundoneyearoned}} 
+ 
 
 
 

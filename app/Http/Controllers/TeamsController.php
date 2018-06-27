@@ -91,6 +91,10 @@ class TeamsController extends Controller
     }
 
     
+    public function showteam($team)
+    {
+        $teams = GameData::findOrFail($team)->select('team')->where('round', 'One')->where('team', $team)->where('stage', 'R16')->where('year', '2005')->get();
+    }
 
     public function display($teamdatas)
     {
