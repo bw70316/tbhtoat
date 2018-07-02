@@ -50,10 +50,197 @@ class TeamsController extends Controller
      */
     public function show($id)
     {
+
+        function createYearsArray()
+        {
+            // Logic of the function
+        
+             return [
+                 2005, 
+                 2006,
+                 2007,
+                 2008,
+                 2009,
+                 2010,
+                 2011,
+                 2012,
+                 2013,
+                 2014,
+                2015,
+                2016,
+                
+             ];
+             }
+        
+                $years = createYearsArray();
+
+                $seasons =( [ 2005, 2006,2007,
+                2008,
+                2009,
+                2010,
+                2011,
+                2012,
+                2013,
+                2014,
+               2015,
+               2016]);
+
+               $seasonWins=[];
+               $seasonFinalWins=[];
+               $seasonFinalLosses=[];
+               $semiFinalWins=[];
+               $semiFinalLosses=[];
+               $roundTwoWins=[];
+                $roundOneWins=[];
+                $homeGroupWins=[];
+                $homeGroupTies=[];
+
+               foreach($seasons as $season) {
+                   $seasonWins[$season]=GameData::select('team')
+                  ->where('win', '1')
+                   ->where('stage', 'R16')
+                   ->where('round', 'final')
+                   ->where('elimination', '1')
+                   ->where('year', $season)
+                   ->value('team');
+               }
+
+               foreach($seasons as $homeFinalWin) {
+                $seasonFinalWins[$homeFinalWin]=GameData::where('team', $id)->
+                where('win', '1')
+                ->where('stage', 'R16')
+                ->where('round', 'final')
+                ->where('year', $homeFinalWin)
+                ->count();
+               }
+               
+               foreach($seasons as $homeFinalLoss) {
+                $seasonFinalLosses[$homeFinalLoss]=GameData::where('team', $id)->
+                where('loss', '1')
+                ->where('stage', 'R16')
+                ->where('round', 'final')
+                ->where('year', $homeFinalLoss)
+                ->count();
+               }
+
+               
+               foreach($seasons as $homeSemiFinalWin) {
+                $semiFinalWins[$homeSemiFinalWin]=GameData::where('team', $id)->
+                where('win', '1')
+                ->where('stage', 'R16')
+                ->where('round', 'semiFinal')
+                ->where('year', $homeSemiFinalWin)
+                ->count();
+               }
+               foreach($seasons as $homeSemiFinalLoss) {
+                $semiFinalLosses[$homeSemiFinalLoss]=GameData::where('team', $id)->
+                where('loss', '1')
+                ->where('stage', 'R16')
+                ->where('round', 'semiFinal')
+                ->where('year', $homeSemiFinalLoss)
+                ->count();
+               }
+                
+               foreach($seasons as $homeRoundTwoWin) {
+                $roundTwoWins[$homeRoundTwoWin]=GameData::where('team', $id)->
+                where('win', '1')
+                ->where('stage', 'R16')
+                ->where('round', 'Two')
+                ->where('year', $homeRoundTwoWin)
+                ->count();
+               }
+               
+                foreach($seasons as $homeRoundTwoLoss) {
+                $roundTwoLosses[$homeRoundTwoLoss]=GameData::where('team', $id)->
+                where('loss', '1')
+                ->where('stage', 'R16')
+                ->where('round', 'Two')
+                ->where('year', $homeRoundTwoLoss)
+                ->count();
+               }
+
+               foreach($seasons as $homeRoundOneWin) {
+                $roundOneWins[$homeRoundOneWin]=GameData::where('team', $id)->
+                where('win', '1')
+                ->where('stage', 'R16')
+                ->where('round', 'One')
+                ->where('year', $homeRoundOneWin)
+                ->count();
+               }
+               
+                foreach($seasons as $homeRoundOneLoss) {
+                $roundOneLosses[$homeRoundOneLoss]=GameData::where('team', $id)->
+                where('loss', '1')
+                ->where('stage', 'R16')
+                ->where('round', 'One')
+                ->where('year', $homeRoundOneLoss)
+                ->count();
+               }
+
+               foreach($seasons as $homeGroupWin) {
+                $homeGroupWins[$homeGroupWin]=GameData::where('team', $id)
+               ->where('win', '1')
+               ->where('stage', 'group')
+               ->where('year', $homeGroupWin)
+               ->count();
+               }
+               foreach($seasons as $homeGroupLoss) {
+                $homeGroupLosses[$homeGroupLoss]=GameData::where('team', $id)->
+                where('loss', '1')
+                
+                ->where('stage', 'group')
+                ->where('year', $homeGroupLoss)
+                ->count();
+               }
+               foreach($seasons as $homeGroupTie) {
+                $homeGroupTies[$homeGroupTie]=GameData::where('team', $id)->
+                where('tie', '1')
+                ->where('stage', 'group')
+                ->where('year', $homeGroupTie)
+                ->count();
+               }
+
+            $totalRecords= GameData::where('team', $id)->where('year', $years)->where('win', '1')->count();
+        
+        $teamDatas = GameData::select('team')->where('team', $id)->distinct()->get();
+        $totalhomewins= GameData::where('homeTeam', $id)->where('homeWin', '1')->count()/2;
+        $totalAwayWins=GameData::where('awayTeam', $id)->where('awayWin', '1')->count()/2;
+       
+        $totalwins= ($totalhomewins + $totalAwayWins);
+
+        $totalHomeLosses=gameData::where('homeTeam', $id)->where('homeloss', '1')->count()/2;
+        $totalAwayLosses=gameData::where('awayTeam', $id)->where('awayLoss', '1')->count()/2;
+
+        $totalLosses= ($totalHomeLosses+ $totalAwayLosses);
+
+        $totalHomeTies=gameData::where('homeTeam', $id)->where('tie', '1')->count()/2;
+        $totalAwayTies=gameData::where('awayTeam', $id)->where('tie', '1')->count()/2;
+
+        $totalTies= ($totalHomeTies+ $totalAwayTies);
+
+        $id = $id;
+
+        $bubbleHomeWinYearOne= GameData::where('homeTeam', $id)->where('homeWin', '1')->where('stage', 'bubble')->where('year', '2014')->count()/2;
+        $bubbleHomeLossYearOne=GameData::where('homeTeam', $id)->where('homeLoss', '1')->where('stage', 'bubble')->where('year', '2014')->count()/2;
+        $bubbleHomeTieYearOne=GameData::where('homeTeam', $id)->where('tie', '1')->where('stage', 'bubble')->where('year', '2014')->count()/2;
         
         
+        
+        
+        
+        
+        
+        
+        
+        $roundFinalYearOneWin= GameData::where('team', $id)->where('win', '1')->where('stage', 'R16')->where('round', 'final')->where('year', '2005')->count();
+        $roundFinalYearOneLoss= GameData::where('team', $id)->where('loss', '1')->where('stage', 'R16')->where('round', 'final')->where('year', '2005')->count();
+        $roundSemiYearOneWin= GameData::where('homeTeam', $id)->where('homeWin', '1')->where('stage', 'R16')->where('round', 'semiFinal')->where('year', '2005')->count();
+        $roundSemiYearOneLoss= GameData::where('awayteam', $id)->where('awayWin', '1')->where('stage', 'R16')->where('round', 'semiFinal')->where('year', '2005')->count();
 
+        
+        $yearOneChampions= LoserData::select('team')->where('win', '1')->where('stage', 'R16')->where('round', 'final')->where('elimination', '1')->where('ar', $years)->take(10)->get();
 
+        return view('teams/show', compact('teamDatas', 'homeGroupTies','roundOneWins', 'homeGroupLosses', 'homeGroupWins', 'roundOneLosses','semiFinalLosses', 'roundTwoLosses', 'roundTwoWins' ,'semiFinalWins' ,'finalRecords', 'finalWins', 'seasonFinalLosses', 'seasonWins', 'seasonFinalWins', 'seasons', 'totalRecords', 'years', 'roundSemiYearOneLoss', 'roundSemiYearOneWin', 'roundFinalYearOneWin', 'roundFinalYearOneLoss', 'id', 'yearOneChampions', 'totalAwayWins', 'totalAwayLosses','totalAwayTies', 'totalwins', 'totalhomewins', 'totalHomeLosses','totalHomeTies','totalLosses', 'totalTies'));
     }
 
     /**
@@ -121,8 +308,8 @@ class TeamsController extends Controller
 
         $years = createYearsArray();
 
-        $roundoneyearoned = GameData::where('awayteam', $teamdatas)
-     ->where('awayLoss', '1')
+        $roundoneyearone = GameData::where('awayteam', $teamdatas)
+     ->where('Loss', '1')
      ->where('stage', 'R16')
      ->where('round', 'one')
      ->whereIn('year', $years)->count();

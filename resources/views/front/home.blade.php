@@ -93,7 +93,7 @@
 <strong>2014 Winner</strong>
 <br>
 {{$seasonThree->am}}
-
+<p>   {!!$seasonThreeWins!!}-{!!$seasonThreeLosses!!}-{!!$seasonThreeTies!!}<p>
 @endforeach
 @endif
 
@@ -105,7 +105,7 @@
 <strong>2013 Winner</strong>
 <br>
 {{$seasonFour->am}}
-
+<p>   {!!$seasonFourWins!!}-{!!$seasonFourLosses!!}-{!!$seasonFourTies!!}<p>
 @endforeach
 @endif
 <br>
@@ -117,7 +117,7 @@
 <strong>2012 Winner</strong>
 <br>
 {{$seasonFive->am}}
-
+<p>   {!!$seasonFiveWins!!}-{!!$seasonFiveLosses!!}-{!!$seasonFiveTies!!}<p>
 @endforeach
 @endif
 <br>
@@ -129,6 +129,7 @@
 <strong>2011 Winner</strong>
 <br>
 {{$seasonSix->am}}
+<p>   {!!$seasonSixWins!!}-{!!$seasonSixLosses!!}-{!!$seasonSixTies!!}<p>
 @endforeach
 @endif
 <br>
@@ -141,7 +142,7 @@
 <strong>2010 Winner</strong>
 <br>
 {{$seasonSeven->am}}
-
+<p>   {!!$seasonSevenWins!!}-{!!$seasonSevenLosses!!}-{!!$seasonSevenTies!!}<p>
 
 @endforeach
 @endif
@@ -153,6 +154,7 @@
 <strong>2009 Winner</strong>
 <br>
 {{$seasonEight->am}}
+<p>   {!!$seasonEightWins!!}-{!!$seasonEightLosses!!}-{!!$seasonEightTies!!}<p>
 @endforeach
 @endif
 
@@ -163,6 +165,7 @@
 <strong>2008 Winner</strong>
 <br>
 {{$seasonNine->am}}
+<p>   {!!$seasonNineWins!!}-{!!$seasonNineLosses!!}-{!!$seasonNineTies!!}<p>
 @endforeach
 @endif
 
@@ -173,16 +176,17 @@
 <strong>2007 Winner</strong>
 <br>
 {{$seasonTen->am}}
+<p>   {!!$seasonTenWins!!}-{!!$seasonTenLosses!!}-{!!$seasonTenTies!!}<p>
 @endforeach
 @endif
 
-<br>
-<br>
+
 @if($seasonElevens)
 @foreach($seasonElevens as $seasonEleven)
 <strong>2006 Winner</strong>
 <br>
 {{$seasonEleven->am}}
+<p>   {!!$seasonElevenWins!!}-{!!$seasonElevenLosses!!}-{!!$seasonElevenTies!!}<p>
 @endforeach
 @endif
 <br>
@@ -193,6 +197,7 @@
 <strong>2005 Winner</strong>
 <br>
 {{$seasonTwelve->am}}
+<p>   {!!$seasonTwelveWins!!}-{!!$seasonTwelveLosses!!}-{!!$seasonTwelveTies!!}<p>
 @endforeach
 @endif
 <br>
@@ -225,40 +230,7 @@
 
 
 <!-- Blog Categories Well -->
-<div class="well">
-    <h4 style="text-align:center; margin-top:-10px; margin-right:15px;">YEARS</h4>
-    <div class="row">
-        <div class="col-sm-2">
-            <ul class="list-unstyled" style="margin-left:40px">
-           
-
-                @foreach(array_slice($data->toArray(), 0, 6) as $item)
-               
-                 
-                        <a href="{{route('years.show', $item)}}">{{$item ['year'] }}</a>
-                        </li>
-                     
-                 @endforeach
-            </ul>
-        </div>
-        <div class="col-sm-2">
-        </div>
-    
-        <div class="col-sm-3">
-            <ul class="list-unstyled" style="margin-left:40px">
-            @foreach(array_slice($data->toArray(), 7, 14) as $item)
-               
-                 
-               <a href="{{route('years.show', $item)}}">{{$item ['year'] }}</a>
-               </li>
-            
-        @endforeach
-                
-            </ul>
-        </div>
-    </div>
-  </div>
- 
+@include('includes.years_sidebar')
 
 <!-- Side Widget Well -->
 <div class="well">
@@ -268,11 +240,10 @@
         <div class="col-sm-3">
             <ul class="list-unstyled">
             @foreach(array_slice($teams->toArray(), 0, 33) as $team)
-         
                
            
             <li style="width: 100px; margin-right:5px;">
-               <a href="/teams/showteam/{$team}">{{$team ['team'] }}</a>
+               <a href="{{route('teams.show', $team)}} ">{{$team ['team'] }}</a>
                </li>
             
         @endforeach
@@ -290,7 +261,7 @@
                
            
          <li style="width: 100px;">
-         <a href="#">{{$team ['team'] }}</a>
+         <a href="{{route('teams.show', $team)}}">{{$team ['team'] }}</a>
          </li>
       
   @endforeach

@@ -18,22 +18,22 @@ class GameData extends Model {
     protected $casts = [ 'team' => 'id' ];
  
     protected $table="game_datas";
-// protected $fillable = [
-//     'year',
-//     'level_id',
-//     'user_id',
-//     'win_id',
-//     'team_id',
-//     'option_id',
-//     'homeScore',
-//     'awayScore',
-//     'homeShots',
-//     'awayShots',
-//     'tie',
-//     'overtime_id'
+protected $fillable = [
+    'year',
+    'level_id',
+    'user_id',
+    'win_id',
+    'team',
+    'option_id',
+    'homeScore',
+    'awayScore',
+    'homeShots',
+    'awayShots',
+    'tie',
+    'overtime_id'
 
 
-// ];
+];
 public function sluggable()
 {
     return [
@@ -59,6 +59,12 @@ public function years()
 {
 
     return $this->belongsTo('App\Years');
+}
+
+public function team()
+
+{
+    return $this->belongsTo('App\Team');
 }
 
 }

@@ -98,7 +98,7 @@
             </div>
 
             <!-- Blog Categories Well -->
-            <div class="well">
+        <div class="well">
                 <h4>TBD Section</h4>
                 <div class="row">
                     <div class="col-sm-3">

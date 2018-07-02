@@ -60,9 +60,37 @@ class HomeController extends Controller
         $seasonTwoWins=LoserData::where('team', '82-Islanders')->where('Win', '1')->where('ar', 2015)->count(); 
         $seasonTwoLosses=LoserData::where('team', '82-Islanders')->where('Loss', '1')->where('ar', 2015)->count();
         $seasonTwoTies=LoserData::where('team', '82-Islanders')->where('tie', '1')->where('ar', 2015)->count();
-
-    
-        
+        $seasonThreeWins=LoserData::where('team', '72-Bruins')->where('Win', '1')->where('ar', 2014)->count(); 
+        $seasonThreeLosses=LoserData::where('team', '72-Bruins')->where('Loss', '1')->where('ar', 2014)->count();
+        $seasonThreeTies=LoserData::where('team', '72-Bruins')->where('tie', '1')->where('ar', 2014)->count();
+        $seasonFourWins=LoserData::where('team', '72-Bruins')->where('Win', '1')->where('ar', 2013)->count(); 
+        $seasonFourLosses=LoserData::where('team', '72-Bruins')->where('Loss', '1')->where('ar', 2013)->count();
+        $seasonFourTies=LoserData::where('team', '72-Bruins')->where('tie', '1')->where('ar', 2013)->count();
+        $seasonFiveWins=LoserData::where('team', '02-Red Wings')->where('Win', '1')->where('ar', 2012)->count(); 
+        $seasonFiveLosses=LoserData::where('team', '02-Red Wings')->where('Loss', '1')->where('ar', 2012)->count();
+        $seasonFiveTies=LoserData::where('team', '02-Red Wings')->where('tie', '1')->where('ar', 2012)->count();
+        $seasonSixWins=LoserData::where('team', '88-Capitals')->where('Win', '1')->where('ar', 2011)->count(); 
+        $seasonSixLosses=LoserData::where('team', '88-Capitals')->where('Loss', '1')->where('ar', 2011)->count();
+        $seasonSixTies=LoserData::where('team', '88-Capitals')->where('tie', '1')->where('ar', 2011)->count();
+        $seasonSevenWins=LoserData::where('team', '52-Red Wings')->where('Win', '1')->where('ar', 2010)->count(); 
+        $seasonSevenLosses=LoserData::where('team', '52-Red Wings')->where('Loss', '1')->where('ar', 2010)->count();
+        $seasonSevenTies=LoserData::where('team', '52-Red Wings')->where('tie', '1')->where('ar', 2010)->count();
+        $seasonEightWins=LoserData::where('team', '87-Oilers')->where('Win', '1')->where('ar', 2009)->count(); 
+        $seasonEightLosses=LoserData::where('team', '87-Oilers')->where('Loss', '1')->where('ar', 2009)->count();
+        $seasonEightTies=LoserData::where('team', '87-Oilers')->where('tie', '1')->where('ar', 2009)->count();
+        $seasonNineWins=LoserData::where('team', '88-Capitals')->where('Win', '1')->where('ar', 2008)->count(); 
+        $seasonNineLosses=LoserData::where('team', '88-Capitals')->where('Loss', '1')->where('ar', 2008)->count();
+        $seasonNineTies=LoserData::where('team', '88-Capitals')->where('tie', '1')->where('ar', 2008)->count();
+        $seasonTenWins=LoserData::where('team', '02-Red Wings')->where('Win', '1')->where('ar', 2007)->count(); 
+        $seasonTenLosses=LoserData::where('team', '02-Red Wings')->where('Loss', '1')->where('ar', 2007)->count();
+        $seasonTenTies=LoserData::where('team', '02-Red Wings')->where('tie', '1')->where('ar', 2007)->count();
+        $seasonElevenWins=LoserData::where('team', '06-France')->where('Win', '1')->where('ar', 2006)->count(); 
+        $seasonElevenLosses=LoserData::where('team', '06-France')->where('Loss', '1')->where('ar', 2006)->count();
+        $seasonElevenTies=LoserData::where('team', '06-France')->where('tie', '1')->where('ar', 2006)->count();
+        $seasonTwelveWins=LoserData::where('team', '75-Sabres')->where('Win', '1')->where('ar', 2005)->count(); 
+        $seasonTwelveLosses=LoserData::where('team', '75-Sabres')->where('Loss', '1')->where('ar', 2005)->count();
+        $seasonTwelveTies=LoserData::where('team', '75-Sabres')->where('tie', '1')->where('ar', 2005)->count();
+       
         //$seasonOneAwayWins= GameData::where('awayTeam', '81-North Stars')->where('awayWin', '1')->where('year', '2016')->count(); 
         
         // $champions = Laravel_Hockey::table('rank_datas')
@@ -73,7 +101,7 @@ class HomeController extends Controller
         // $seasonOneWins= $seasonOneHomeWins + $seasonOneAwayWins;
         //the withData allows me to include the $data variable in my blade
         //I tried it without it and it didn't work. 
-        return view ('front/home', compact("data", "rankTwos","rankOnes", "seasonTwelves", "seasonTwoWins", "seasonTwoLosses", "seasonTwoTies", "seasonElevens", "seasonTens", "seasonSixes",   "seasonSevens","seasonNines","seasonEights", "seasonOneWins","seasonOneLosses", "seasonOneTies", "teams", "ranks", "seasonTwos", "seasonOnes", "seasonThrees", "seasonFours", "seasonFives"));
+  return view ('front/home', compact("data", "rankTwos","rankOnes", "seasonThreeWins", "seasonThreeLosses", "seasonThreeTies","seasonTwelveWins", "seasonTwelveLosses", "seasonTwelveTies","seasonElevenWins", "seasonElevenLosses", "seasonElevenTies", "seasonTenWins", "seasonTenLosses", "seasonTenTies", "seasonNineWins", "seasonNineLosses", "seasonNineTies", "seasonEightWins", "seasonEightLosses", "seasonEightTies", "seasonSevenWins", "seasonSevenLosses", "seasonSevenTies" ,"seasonFourWins", "seasonFourLosses", "seasonFourTies","seasonSixWins", "seasonSixLosses", "seasonSixTies", "seasonFiveWins", "seasonFiveLosses", "seasonFiveTies","seasonTwelves", "seasonTwoWins", "seasonTwoLosses", "seasonTwoTies", "seasonElevens", "seasonTens", "seasonSixes",   "seasonSevens","seasonNines","seasonEights", "seasonOneWins","seasonOneLosses", "seasonOneTies", "teams", "ranks", "seasonTwos", "seasonOnes", "seasonThrees", "seasonFours", "seasonFives"));
 
 
 

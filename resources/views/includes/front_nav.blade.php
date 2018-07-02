@@ -38,11 +38,9 @@
                     <a href="#">Past<br>Tournaments</a>
                 </li>
                 <li>
-                    <a href="#">Add Players</a>
+                    <a href="/posts">Blog</a>
                 </li>
-                <li>
-                    <a href="/data">Data</a>
-                </li>
+                
             </ul>
         </div>
         <!-- /.navbar-collapse -->

@@ -58,6 +58,7 @@ class YearsController extends Controller
         //
         {
             //Group A
+            $data = GameData::select('year')->distinct()->get();
            
             
             //Round 1 A
