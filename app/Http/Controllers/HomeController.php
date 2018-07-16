@@ -114,6 +114,8 @@ class HomeController extends Controller
     //     return view('front/home', compact('posts', 'categories'));
     }
 
+  
+
     public function post($slug){
 
         $post = Post::findBySlugOrFail($slug);
@@ -125,4 +127,5 @@ class HomeController extends Controller
  
         return view('post', compact('post', 'comments', 'categories'));
      }
+     
 }

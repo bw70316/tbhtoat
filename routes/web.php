@@ -116,11 +116,15 @@ Route::resource('year', 'DataYearController');
 
 Route::resource('years', 'YearsController');
 
+Route::get('years/scrape', 'YearsController@scrape');
+
 Route::get('datatable', 'DataTableController@datatable');
 // Get Data
 Route::get('datatable/getdata', 'DataTableController@getPosts')->name('datatable/getdata');
 
 Route::get('datatable/yearview', 'DataTableController@yearview');
+
+Route::get('scrape', ['uses' =>'ScrapeController@Scrape']);
 
 // Route::get ( '/data', function () {
 //     $data = Data::all ();

@@ -148,6 +148,7 @@ return [
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
         Collective\Html\HtmlServiceProvider::class,
+        Weidner\Goutte\GoutteServiceProvider::class,
         
         // Tiny Editor
         Unisharp\Laravelfilemanager\LaravelFilemanagerServiceProvider::class,
@@ -216,6 +217,7 @@ return [
         'Html' => Collective\Html\HtmlFacade::class,
         'Image' => Intervention\Image\Facades\Image::class,
         'DataTables' => Yajra\DataTables\Facades\DataTables::class,
+        'Goutte' => Weidner\Goutte\GoutteFacade::class,
 
     ],
 

@@ -1,13 +1,13 @@
-@extends('layouts.blog-home')
+@extends('layouts.home')
 
 @section('content')
 
 
 
     <!-- Blog Sidebar Widgets Column -->
-    <div class="container" style="margin-top:80px;">
+ 
 		{{ csrf_field() }}
-    <div class="row">
+
     
 	    <div class="col-sm-4">
 		    	
@@ -48,6 +48,8 @@
 
 
       </div>
+        </div>
+        <div class="col-sm-1">
         </div>
         
         <div class="col-sm-4">
@@ -209,83 +211,32 @@
 <button class="btn btn-primary" onclick="showChamps()">Show Champs</button>
             </ul>
         </div>
-        <div class="col-sm-2">
         </div>
-    
-        <div class="col-sm-3">
-            <ul class="list-unstyled" style="margin-left:40px">
-          
-                
-            </ul>
-        </div>
-    </div>
-      </div>
-     
-                </div>
-                <div class="col-sm-1">
-                </div>
-        <div class="col-sm-3">
+       
+               
+  
 
 <!-- Blog Search Well -->
 
 
 <!-- Blog Categories Well -->
-@include('includes.years_sidebar')
+
 
 <!-- Side Widget Well -->
-<div class="well">
-    <h3 style="text-align:center; margin-top:-10px;">TEAMS</h3>
-     <div class="row">
-  
-        <div class="col-sm-3">
-            <ul class="list-unstyled">
-            @foreach(array_slice($teams->toArray(), 0, 33) as $team)
-               
-           
-            <li style="width: 100px; margin-right:5px;">
-               <a href="{{route('teams.show', $team)}} ">{{$team ['team'] }}</a>
-               </li>
-            
-        @endforeach
 
-              
-            </ul>
-        </div>
-        <div class="col-sm-3">
-        <p>   </p>
-        </div>
-        <div class="col-sm-3">
-            <ul class="list-unstyled">
-            @foreach(array_slice($teams->toArray(), 33, 66) as $team)
-         
-               
-           
-         <li style="width: 100px;">
-         <a href="{{route('teams.show', $team)}}">{{$team ['team'] }}</a>
-         </li>
-      
-  @endforeach
-         
-                
-            </ul>
-        </div>
-    </div>
-</div>
 
-</div>
 
-</div>
+
+
         </div>
 
     </div>
     
-</div>
+
 			
 
 
 
-
-@include('includes.footer')
 
 @endsection
 

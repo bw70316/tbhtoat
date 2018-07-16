@@ -1,5 +1,8 @@
 @extends('layouts.blog-home')
 
+
+
+
 @section('content')
 <br><br>
 <div class="container">

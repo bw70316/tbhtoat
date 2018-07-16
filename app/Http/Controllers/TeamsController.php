@@ -7,6 +7,7 @@ use App\GameData;
 use App\Team;
 use App\Losers;
 use App\LoserData;
+use App\YearRank;
 
 class TeamsController extends Controller
 {
@@ -54,6 +55,9 @@ class TeamsController extends Controller
         function createYearsArray()
         {
             // Logic of the function
+
+            $datas = GameData::select('year')->distinct()->get();
+            $teams = GameData::select('team')->distinct()->orderBy('team', 'asc')->get();
         
              return [
                  2005, 
@@ -94,6 +98,7 @@ class TeamsController extends Controller
                 $roundOneWins=[];
                 $homeGroupWins=[];
                 $homeGroupTies=[];
+                $homeChallengeTies=[];
 
                foreach($seasons as $season) {
                    $seasonWins[$season]=GameData::select('team')
@@ -199,6 +204,88 @@ class TeamsController extends Controller
                 ->where('year', $homeGroupTie)
                 ->count();
                }
+               foreach($seasons as $homeChallengeWin) {
+                $homeChallengeWins[$homeChallengeWin]=GameData::where('team', $id)
+               ->where('win', '1')
+               ->where('stage', 'Challenge')
+               ->where('year', $homeChallengeWin)
+               ->count();
+               }
+
+               foreach($seasons as $homeChallengeLoss) {
+                $homeChallengeLosses[$homeChallengeLoss]=GameData::where('team', $id)
+               ->where('loss', '1')
+               ->where('stage', 'Challenge')
+               ->where('year', $homeChallengeLoss)
+               ->count();
+               }
+
+               foreach($seasons as $homeChallengeTie) {
+                $homeChallengeTies[$homeChallengeTie]=GameData::where('team', $id)
+               ->where('tie', '1')
+               ->where('stage', 'Challenge')
+               ->where('year', $homeChallengeTie)
+               ->count();
+               }
+
+               foreach($seasons as $homePlayInWin) {
+                $homePlayInWins[$homePlayInWin]=GameData::where('team', $id)
+               ->where('win', '1')
+               ->where('stage', 'play-in')
+               ->where('year', $homePlayInWin)
+               ->count();
+               }
+
+               foreach($seasons as $homePlayInLoss) {
+                $homePlayInLosses[$homePlayInLoss]=GameData::where('team', $id)
+               ->where('loss', '1')
+               ->where('stage', 'play-in')
+               ->where('year', $homePlayInLoss)
+               ->count();
+               }
+
+               foreach($seasons as $homeChallengeTie) {
+                $homePlayInTies[$homeChallengeTie]=GameData::where('team', $id)
+               ->where('tie', '1')
+               ->where('stage', 'Challenge')
+               ->where('year', $homeChallengeTie)
+               ->count();
+               }
+
+               foreach($seasons as $homeBubbleWin) {
+                $homeBubbleWins[$homeBubbleWin]=GameData::where('team', $id)
+               ->where('win', '1')
+               ->where('stage', 'bubble')
+               ->where('year', $homeBubbleWin)
+               ->count();
+               }
+
+               foreach($seasons as $homeBubbleLoss) {
+                $homeBubbleLosses[$homeBubbleLoss]=GameData::where('team', $id)
+               ->where('loss', '1')
+               ->where('stage', 'bubble')
+               ->where('year', $homeBubbleLoss)
+               ->count();
+               }
+               foreach($seasons as $homeBubbleTie) {
+                $homeBubbleTies[$homeBubbleTie]=GameData::where('team', $id)
+               ->where('tie', '1')
+               ->where('stage', 'bubble')
+               ->where('year', $homeBubbleTie)
+               ->count();
+               }
+
+               
+
+               //these are the final rankings for each team by year
+               foreach($seasons as $yearFinish) {
+                $yearFinishes[$yearFinish]=YearRank::select()
+                ->where('am', $id)
+                ->value($yearFinish);
+               }
+
+               $yearFinishOne = YearRank::select()->where('am', $id)->pluck('2005');
+
 
             $totalRecords= GameData::where('team', $id)->where('year', $years)->where('win', '1')->count();
         
@@ -240,7 +327,9 @@ class TeamsController extends Controller
         
         $yearOneChampions= LoserData::select('team')->where('win', '1')->where('stage', 'R16')->where('round', 'final')->where('elimination', '1')->where('ar', $years)->take(10)->get();
 
-        return view('teams/show', compact('teamDatas', 'homeGroupTies','roundOneWins', 'homeGroupLosses', 'homeGroupWins', 'roundOneLosses','semiFinalLosses', 'roundTwoLosses', 'roundTwoWins' ,'semiFinalWins' ,'finalRecords', 'finalWins', 'seasonFinalLosses', 'seasonWins', 'seasonFinalWins', 'seasons', 'totalRecords', 'years', 'roundSemiYearOneLoss', 'roundSemiYearOneWin', 'roundFinalYearOneWin', 'roundFinalYearOneLoss', 'id', 'yearOneChampions', 'totalAwayWins', 'totalAwayLosses','totalAwayTies', 'totalwins', 'totalhomewins', 'totalHomeLosses','totalHomeTies','totalLosses', 'totalTies'));
+            
+
+        return view('teams/show', compact('teamDatas', 'data','teams', 'yearFinish', 'yearFinishes', 'homeBubbleWins','homeBubbleLosses','homeBubbleTies', 'homeChallengeWins', 'homePlayInWins', 'homePlayInLosses', 'homePlayInTies', 'homeChallengeLosses', 'homeChallengeTies', 'homeGroupTies','roundOneWins', 'homeGroupLosses', 'homeGroupWins', 'roundOneLosses','semiFinalLosses', 'roundTwoLosses', 'roundTwoWins' ,'semiFinalWins' ,'finalRecords', 'finalWins', 'seasonFinalLosses', 'seasonWins', 'seasonFinalWins', 'seasons', 'totalRecords', 'years', 'roundSemiYearOneLoss', 'roundSemiYearOneWin', 'roundFinalYearOneWin', 'roundFinalYearOneLoss', 'id', 'yearOneChampions', 'totalAwayWins', 'totalAwayLosses','totalAwayTies', 'totalwins', 'totalhomewins', 'totalHomeLosses','totalHomeTies','totalLosses', 'totalTies'));
     }
 
     /**
@@ -733,4 +822,6 @@ $yeartwelvebubblehomewin=gameData::where('homeTeam', $teamdatas)->where('homewin
         return view('teams/display', compact('teamdatas', 'roundoneyearoned', 'yeartwelvewinbubble', 'yeartwelvewinbubbleloss', 'yearelevenwinbubble', 'yearelevenwinbubbleloss', 'yeareightwinbubbleloss' , 'yeartenwinbubble', 'yeartenwinbubbleloss', 'yearninewinbubbleloss', 'yearninewinbubble', 'yeareightwinbubble', 'yearsevenwinbubbleloss', 'yearsevenwinbubble', 'yearsixwinbubble', 'yearsixwinbubbleloss', 'yearfivewinbubbleloss',  'yearfivewinbubble', 'bubblehomewins', 'bubbleonetie', 'bubbletwotie', 'bubbleyeartwo', 'bubbleyearthree', 'bubbleyearthreeloss', 'bubblethreetie', 'bubbleyeartwoloss', 'bubbleyearone', 'bubbleyearoneloss', 'yearonechampions', 'yeartwochampion', 'roundfinalyearoneloss', 'roundfinalyearone', 'roundsemiyearoneloss', 'roundsemiyearone', 'roundtwoyearone', 'roundtwoyearoneloss',  'roundoneyearoneloss', 'roundoneyearone' ,'yeartwelvetotalloss', 'yeartwelvetotalwins', 'yeartwelvetie', 'yeareleventotalwins', 'yeareleventotalloss', 'yeartentotalwins', 'yeartentotalloss','yearninetotalwins', 'yearninetotalloss', 'yeareighttie', 'yearninetie', 'yeartentie', 'yeareleventie', 'yeareighttotalwins', 'yeareighttotalloss', 'yearseventotalwins', 'yearseventotalloss', 'yearseventie', 'yearfivetie', 'yearsixtie', 'yearthreetie', 'yearfourtie' , 'yeartwotie', 'yearsixhometie', 'yearsixtotalwins', 'yearsixtotalloss', 'yearthreetotalwins', 'yearthreetotalloss', 'yearfivetotalwins', 'yearfivetotalloss', 'yearonetotalwins', 'yearonetotalloss',  'yeartwototalwins', 'yeartwototalloss', 'yearfourhomewin', 'yearfourawaywin', 'yearfourtotalwins', 'yearfourhomeloss', 'yearfourawayloss', 'yearfourtotalloss', 'totallosses', 'totalhomelosses', 'totalawaylosses', 'totalhomewins', 'totalwins', 'totalawaywins'));
 
     }
+
+    
 }
