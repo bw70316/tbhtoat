@@ -32,7 +32,21 @@
                         </ul>
                         <!-- /.nav-second-level -->
                     </li>
+                    <li>
+                        <a href="#"><i class="fa fa-wrench fa-fw"></i>Games<span class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level">
+                 
+                            <li>
+                                <a href="{{route('admin.games.index')}}">All Games</a>
+                            </li>
 
+                            <li>
+                                <a href="{{route('admin.games.create')}}">Create Game</a>
+                            </li>
+
+                        </ul>
+                        <!-- /.nav-second-level -->
+                    </li>
                     <li>
                         <a href="#"><i class="fa fa-wrench fa-fw"></i> Posts<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">

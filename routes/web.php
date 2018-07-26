@@ -105,7 +105,14 @@ Route::group(['middleware'=>'admin'], function(){
         'show'=>'admin.replies.show'
     ]]);
 
+    Route::resource('admin/games', 'AdminGamesController', ['names'=>[
 
+        'index'=>'admin.games.index',
+        'create'=>'admin.games.create',
+        'store'=>'admin.games.store',
+        'edit'=>'admin.games.edit',
+        'show'=>'admin.games.show'
+    ]]);
 //    Route::get('admin/media/create', ['as' =>'admin.media.create', 'uses'=>'AdminMediasController@store']);
 
 });

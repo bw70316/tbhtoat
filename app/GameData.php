@@ -21,6 +21,7 @@ class GameData extends Model {
 protected $fillable = [
     'year',
     'level_id',
+    'game',
     'user_id',
     'win_id',
     'team',
@@ -66,5 +67,12 @@ public function team()
 {
     return $this->belongsTo('App\Team');
 }
+
+public function games()
+{
+
+    return $this->belongsTo('App\GameData');
+}
+
 
 }
